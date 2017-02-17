@@ -49,7 +49,9 @@ class RootViewController: UIViewController {
                     if let jsonData = self.decodeAndValidateJSON(data: data!) {
                         let resp = self.parseData(data: jsonData)
                         self.model = resp
-                        //self.tableView.reloadData()
+                        DispatchQueue.main.async(execute: { () -> Void in
+                            self.tableView.reloadData()
+                        })
                     }
                 }
             }).resume()
@@ -155,14 +157,20 @@ extension RootViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = TableViewCell()
-        return cell
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CarouselCell", for: indexPath) as? TableViewCell
+        if let cell = cell {
+            if let model = model {
+                cell.suggestionLabel.text = model[indexPath.row].suggestion
+            }
+            cell.setCollectionViewDataSourceDelegate(self, forRow: indexPath.row)
+        }
+        return cell!
     }
 }
 
 extension RootViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(200)
+        return CGFloat(80)
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -173,6 +181,41 @@ extension RootViewController: UITableViewDelegate {
         let charactersToEscape = "!*'();@&=+$,/?%#[]\" "
         let customEncodingSet = CharacterSet(charactersIn: charactersToEscape).inverted
         return fragment.addingPercentEncoding(withAllowedCharacters: customEncodingSet)!
+    }
+}
+
+extension RootViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        if let model = model {
+            if let cards = model[collectionView.tag].cards {
+                return cards.count
+            }
+        }
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+        if let model = model {
+            if let cards = model[collectionView.tag].cards {
+                do {
+                    let data = try Data(contentsOf: cards[indexPath.row].url)
+                    let image = UIImage(data: data)
+                    let imageView = UIImageView()
+                    imageView.image = image
+                    imageView.layer.borderWidth = 1
+                    imageView.layer.borderColor = UIColor.black.cgColor
+                    cell.backgroundView = imageView
+                } catch {
+                }
+            }
+        }
+        //cell.backgroundColor = .red
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
     }
 }
 

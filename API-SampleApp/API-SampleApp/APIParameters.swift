@@ -31,7 +31,7 @@ class APIParameters {
         return Static.instance
     }
     
-    let app_id: String = Bundle.main.bundleIdentifier!
+    let app_id: String = "com.zowdow.android.example"
     let device_id: String = ASIdentifierManager.shared().isAdvertisingTrackingEnabled ? ASIdentifierManager.shared().advertisingIdentifier.uuidString : (UIDevice.current.identifierForVendor?.uuidString)!
     
     var deviceLocation: CLLocation? {

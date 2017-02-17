@@ -12,14 +12,14 @@
 		F37E83191E5698FC0072B3D8 /* APIParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E830B1E5698FC0072B3D8 /* APIParameters.swift */; };
 		F37E831A1E5698FC0072B3D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E830C1E5698FC0072B3D8 /* AppDelegate.swift */; };
 		F37E831B1E5698FC0072B3D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F37E830D1E5698FC0072B3D8 /* Assets.xcassets */; };
-		F37E831C1E5698FC0072B3D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F37E830F1E5698FC0072B3D8 /* LaunchScreen.storyboard */; };
-		F37E831D1E5698FC0072B3D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F37E83111E5698FC0072B3D8 /* Main.storyboard */; };
 		F37E831E1E5698FC0072B3D8 /* CardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E83131E5698FC0072B3D8 /* CardData.swift */; };
 		F37E831F1E5698FC0072B3D8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F37E83141E5698FC0072B3D8 /* Info.plist */; };
 		F37E83201E5698FC0072B3D8 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E83151E5698FC0072B3D8 /* RootViewController.swift */; };
 		F37E83211E5698FC0072B3D8 /* SuggestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E83161E5698FC0072B3D8 /* SuggestionData.swift */; };
 		F37E83221E5698FC0072B3D8 /* SuggestionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E83171E5698FC0072B3D8 /* SuggestionLoader.swift */; };
 		F37E83231E5698FC0072B3D8 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E83181E5698FC0072B3D8 /* TableViewCell.swift */; };
+		F37E83291E577F960072B3D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F37E83271E577F960072B3D8 /* LaunchScreen.storyboard */; };
+		F37E832C1E577F9B0072B3D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F37E832A1E577F9B0072B3D8 /* Main.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,14 +33,14 @@
 		F37E830B1E5698FC0072B3D8 /* APIParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIParameters.swift; path = "API-SampleApp/APIParameters.swift"; sourceTree = SOURCE_ROOT; };
 		F37E830C1E5698FC0072B3D8 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "API-SampleApp/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
 		F37E830D1E5698FC0072B3D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "API-SampleApp/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
-		F37E83101E5698FC0072B3D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
-		F37E83121E5698FC0072B3D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
 		F37E83131E5698FC0072B3D8 /* CardData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardData.swift; path = "API-SampleApp/CardData.swift"; sourceTree = SOURCE_ROOT; };
 		F37E83141E5698FC0072B3D8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "API-SampleApp/Info.plist"; sourceTree = SOURCE_ROOT; };
 		F37E83151E5698FC0072B3D8 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewController.swift; path = "API-SampleApp/RootViewController.swift"; sourceTree = SOURCE_ROOT; };
 		F37E83161E5698FC0072B3D8 /* SuggestionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuggestionData.swift; path = "API-SampleApp/SuggestionData.swift"; sourceTree = SOURCE_ROOT; };
 		F37E83171E5698FC0072B3D8 /* SuggestionLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuggestionLoader.swift; path = "API-SampleApp/SuggestionLoader.swift"; sourceTree = SOURCE_ROOT; };
 		F37E83181E5698FC0072B3D8 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = "API-SampleApp/TableViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		F37E83281E577F960072B3D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "API-SampleApp/Base.lproj/LaunchScreen.storyboard"; sourceTree = SOURCE_ROOT; };
+		F37E832B1E577F9B0072B3D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "API-SampleApp/Base.lproj/Main.storyboard"; sourceTree = SOURCE_ROOT; };
 		FF9509C8D3A32E4852A65BCD /* Pods-Prototype.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prototype.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Prototype/Pods-Prototype.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,17 +78,18 @@
 		7099C12C1DD4ABB200AC49A2 /* API-SampleApp */ = {
 			isa = PBXGroup;
 			children = (
-				F37E830A1E5698FC0072B3D8 /* API-SampleApp-Bridging-Header.h */,
-				F37E830B1E5698FC0072B3D8 /* APIParameters.swift */,
 				F37E830C1E5698FC0072B3D8 /* AppDelegate.swift */,
-				F37E830D1E5698FC0072B3D8 /* Assets.xcassets */,
-				F37E830E1E5698FC0072B3D8 /* Base.lproj */,
-				F37E83131E5698FC0072B3D8 /* CardData.swift */,
-				F37E83141E5698FC0072B3D8 /* Info.plist */,
 				F37E83151E5698FC0072B3D8 /* RootViewController.swift */,
-				F37E83161E5698FC0072B3D8 /* SuggestionData.swift */,
+				F37E830B1E5698FC0072B3D8 /* APIParameters.swift */,
 				F37E83171E5698FC0072B3D8 /* SuggestionLoader.swift */,
+				F37E83161E5698FC0072B3D8 /* SuggestionData.swift */,
+				F37E83131E5698FC0072B3D8 /* CardData.swift */,
 				F37E83181E5698FC0072B3D8 /* TableViewCell.swift */,
+				F37E83271E577F960072B3D8 /* LaunchScreen.storyboard */,
+				F37E830D1E5698FC0072B3D8 /* Assets.xcassets */,
+				F37E832A1E577F9B0072B3D8 /* Main.storyboard */,
+				F37E83141E5698FC0072B3D8 /* Info.plist */,
+				F37E830A1E5698FC0072B3D8 /* API-SampleApp-Bridging-Header.h */,
 			);
 			name = "API-SampleApp";
 			path = Prototype;
@@ -113,16 +114,6 @@
 			);
 			name = Pods;
 			sourceTree = "<group>";
-		};
-		F37E830E1E5698FC0072B3D8 /* Base.lproj */ = {
-			isa = PBXGroup;
-			children = (
-				F37E830F1E5698FC0072B3D8 /* LaunchScreen.storyboard */,
-				F37E83111E5698FC0072B3D8 /* Main.storyboard */,
-			);
-			name = Base.lproj;
-			path = "API-SampleApp/Base.lproj";
-			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 
@@ -188,10 +179,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F37E83291E577F960072B3D8 /* LaunchScreen.storyboard in Resources */,
 				F37E831F1E5698FC0072B3D8 /* Info.plist in Resources */,
-				F37E831D1E5698FC0072B3D8 /* Main.storyboard in Resources */,
 				F37E831B1E5698FC0072B3D8 /* Assets.xcassets in Resources */,
-				F37E831C1E5698FC0072B3D8 /* LaunchScreen.storyboard in Resources */,
+				F37E832C1E577F9B0072B3D8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -263,18 +254,18 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F37E830F1E5698FC0072B3D8 /* LaunchScreen.storyboard */ = {
+		F37E83271E577F960072B3D8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F37E83101E5698FC0072B3D8 /* Base */,
+				F37E83281E577F960072B3D8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
-		F37E83111E5698FC0072B3D8 /* Main.storyboard */ = {
+		F37E832A1E577F9B0072B3D8 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				F37E83121E5698FC0072B3D8 /* Base */,
+				F37E832B1E577F9B0072B3D8 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
