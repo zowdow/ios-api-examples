@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0820"
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7099C1291DD4ABB200AC49A2"
-               BuildableName = "Prototype.app"
-               BlueprintName = "Prototype"
-               ReferencedContainer = "container:Prototype.xcodeproj">
+               BlueprintIdentifier = "352D00D5B981D664F055AEA773D87669"
+               BuildableName = "Pods_API_SampleApp.framework"
+               BlueprintName = "Pods-API-SampleApp"
+               ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -29,15 +29,6 @@
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
       </Testables>
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7099C1291DD4ABB200AC49A2"
-            BuildableName = "Prototype.app"
-            BlueprintName = "Prototype"
-            ReferencedContainer = "container:Prototype.xcodeproj">
-         </BuildableReference>
-      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -49,26 +40,17 @@
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
-      stopOnEveryThreadSanitizerIssue = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
+      <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7099C1291DD4ABB200AC49A2"
-            BuildableName = "Prototype.app"
-            BlueprintName = "Prototype"
-            ReferencedContainer = "container:Prototype.xcodeproj">
+            BlueprintIdentifier = "352D00D5B981D664F055AEA773D87669"
+            BuildableName = "Pods_API_SampleApp.framework"
+            BlueprintName = "Pods-API-SampleApp"
+            ReferencedContainer = "container:Pods.xcodeproj">
          </BuildableReference>
-      </BuildableProductRunnable>
-      <EnvironmentVariables>
-         <EnvironmentVariable
-            key = "OS_ACTIVITY_MODE"
-            value = "disable"
-            isEnabled = "YES">
-         </EnvironmentVariable>
-      </EnvironmentVariables>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -78,16 +60,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <BuildableProductRunnable
-         runnableDebuggingMode = "0">
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7099C1291DD4ABB200AC49A2"
-            BuildableName = "Prototype.app"
-            BlueprintName = "Prototype"
-            ReferencedContainer = "container:Prototype.xcodeproj">
-         </BuildableReference>
-      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

@@ -8,75 +8,39 @@
 
 /* Begin PBXBuildFile section */
 		704254381DDA129300DC51D4 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 704254321DDA110D00DC51D4 /* libsqlite3.tbd */; };
-		705656E61DE49185002709D4 /* Pods_Prototype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 705656E51DE49185002709D4 /* Pods_Prototype.framework */; };
-		7099C12E1DD4ABB200AC49A2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099C12D1DD4ABB200AC49A2 /* AppDelegate.swift */; };
-		7099C1301DD4ABB200AC49A2 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7099C12F1DD4ABB200AC49A2 /* RootViewController.swift */; };
-		7099C1331DD4ABB200AC49A2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7099C1311DD4ABB200AC49A2 /* Main.storyboard */; };
-		7099C1351DD4ABB200AC49A2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7099C1341DD4ABB200AC49A2 /* Assets.xcassets */; };
-		7099C1381DD4ABB200AC49A2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7099C1361DD4ABB200AC49A2 /* LaunchScreen.storyboard */; };
-		BD95CB70ECF12B0A8EC7E7AE /* Pods_Prototype.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 64A4897CC581551AA3375714 /* Pods_Prototype.framework */; };
-		F37AF4171E32C6F500EDE17D /* APIParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37AF4161E32C6F500EDE17D /* APIParameters.swift */; };
-		F37AF4191E32EE8E00EDE17D /* SuggestionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37AF4181E32EE8E00EDE17D /* SuggestionLoader.swift */; };
+		BCF2A7D1A314F286ED8EBE7C /* Pods_API_SampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E986A733522CDD38AD1723FB /* Pods_API_SampleApp.framework */; };
+		F37E83191E5698FC0072B3D8 /* APIParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E830B1E5698FC0072B3D8 /* APIParameters.swift */; };
+		F37E831A1E5698FC0072B3D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E830C1E5698FC0072B3D8 /* AppDelegate.swift */; };
+		F37E831B1E5698FC0072B3D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F37E830D1E5698FC0072B3D8 /* Assets.xcassets */; };
+		F37E831C1E5698FC0072B3D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F37E830F1E5698FC0072B3D8 /* LaunchScreen.storyboard */; };
+		F37E831D1E5698FC0072B3D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F37E83111E5698FC0072B3D8 /* Main.storyboard */; };
+		F37E831E1E5698FC0072B3D8 /* CardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E83131E5698FC0072B3D8 /* CardData.swift */; };
+		F37E831F1E5698FC0072B3D8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F37E83141E5698FC0072B3D8 /* Info.plist */; };
+		F37E83201E5698FC0072B3D8 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E83151E5698FC0072B3D8 /* RootViewController.swift */; };
+		F37E83211E5698FC0072B3D8 /* SuggestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E83161E5698FC0072B3D8 /* SuggestionData.swift */; };
+		F37E83221E5698FC0072B3D8 /* SuggestionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E83171E5698FC0072B3D8 /* SuggestionLoader.swift */; };
+		F37E83231E5698FC0072B3D8 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E83181E5698FC0072B3D8 /* TableViewCell.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		7095DC4F1DDDF51800EA99B7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7095DC481DDDF51800EA99B7 /* ZowdowSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 11C7950E1ACAA84C0039EA23;
-			remoteInfo = ZowdowSDK;
-		};
-		7095DC511DDDF51800EA99B7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7095DC481DDDF51800EA99B7 /* ZowdowSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 11C7952C1ACAA88F0039EA23;
-			remoteInfo = ZowdowSDKResources;
-		};
-		7095DC531DDDF51800EA99B7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7095DC481DDDF51800EA99B7 /* ZowdowSDK.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 11C796701ACAE5BD0039EA23;
-			remoteInfo = MangleNames;
-		};
-		7095DC551DDDF53600EA99B7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7095DC481DDDF51800EA99B7 /* ZowdowSDK.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 11C7950D1ACAA84C0039EA23;
-			remoteInfo = ZowdowSDK;
-		};
-		7095DC571DDDF53A00EA99B7 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 7095DC481DDDF51800EA99B7 /* ZowdowSDK.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = 11C7952B1ACAA88F0039EA23;
-			remoteInfo = ZowdowSDKResources;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
-		4DF1A23055F78BD930562CD5 /* Pods_PodIntegration.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PodIntegration.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		64A4897CC581551AA3375714 /* Pods_Prototype.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prototype.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		432D8F6E805272A1AE3697B3 /* Pods-API-SampleApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-API-SampleApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-API-SampleApp/Pods-API-SampleApp.release.xcconfig"; sourceTree = "<group>"; };
 		704254321DDA110D00DC51D4 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
-		705656E51DE49185002709D4 /* Pods_Prototype.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_Prototype.framework; path = "../../Library/Developer/Xcode/DerivedData/Prototype-alujmwcrkqhufebbfigsqofcjicy/Build/Products/Debug-iphonesimulator/Pods_Prototype.framework"; sourceTree = "<group>"; };
-		7056E3EC1DF5B4F400E14459 /* libZowdowSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libZowdowSDK.a; path = Pods/ZowdowSDK/libZowdowSDK.a; sourceTree = "<group>"; };
-		7056E3F11DF5B5A100E14459 /* Pods_PodIntegration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_PodIntegration.framework; path = "Pods/../build/Debug-iphoneos/Pods_PodIntegration.framework"; sourceTree = "<group>"; };
-		7056E3F51DF5B5FE00E14459 /* Pods_PodIntegration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Pods_PodIntegration.framework; path = "Pods/../build/Debug-iphoneos/Pods_PodIntegration.framework"; sourceTree = "<group>"; };
-		7095DC481DDDF51800EA99B7 /* ZowdowSDK.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ZowdowSDK.xcodeproj; path = ZowdowSDK/ZowdowSDK.xcodeproj; sourceTree = "<group>"; };
-		7099C12A1DD4ABB200AC49A2 /* Prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Prototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7099C12D1DD4ABB200AC49A2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		7099C12F1DD4ABB200AC49A2 /* RootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewController.swift; sourceTree = "<group>"; };
-		7099C1321DD4ABB200AC49A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		7099C1341DD4ABB200AC49A2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7099C1371DD4ABB200AC49A2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		7099C1391DD4ABB200AC49A2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7099C12A1DD4ABB200AC49A2 /* API-SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "API-SampleApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B2F1AFBBBCF3A5EE13AA4C20 /* Pods-Prototype.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prototype.release.xcconfig"; path = "Pods/Target Support Files/Pods-Prototype/Pods-Prototype.release.xcconfig"; sourceTree = "<group>"; };
-		F37AF4131E3290BD00EDE17D /* Prototype-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Prototype-Bridging-Header.h"; sourceTree = "<group>"; };
-		F37AF4161E32C6F500EDE17D /* APIParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIParameters.swift; sourceTree = "<group>"; };
-		F37AF4181E32EE8E00EDE17D /* SuggestionLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SuggestionLoader.swift; sourceTree = "<group>"; };
+		C070374004A36F5C2C4DA5AA /* Pods-API-SampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-API-SampleApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-API-SampleApp/Pods-API-SampleApp.debug.xcconfig"; sourceTree = "<group>"; };
+		E986A733522CDD38AD1723FB /* Pods_API_SampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_API_SampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F37E830A1E5698FC0072B3D8 /* API-SampleApp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "API-SampleApp-Bridging-Header.h"; path = "API-SampleApp/API-SampleApp-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		F37E830B1E5698FC0072B3D8 /* APIParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIParameters.swift; path = "API-SampleApp/APIParameters.swift"; sourceTree = SOURCE_ROOT; };
+		F37E830C1E5698FC0072B3D8 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "API-SampleApp/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
+		F37E830D1E5698FC0072B3D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "API-SampleApp/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
+		F37E83101E5698FC0072B3D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		F37E83121E5698FC0072B3D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Main.storyboard; sourceTree = "<group>"; };
+		F37E83131E5698FC0072B3D8 /* CardData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardData.swift; path = "API-SampleApp/CardData.swift"; sourceTree = SOURCE_ROOT; };
+		F37E83141E5698FC0072B3D8 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = "API-SampleApp/Info.plist"; sourceTree = SOURCE_ROOT; };
+		F37E83151E5698FC0072B3D8 /* RootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RootViewController.swift; path = "API-SampleApp/RootViewController.swift"; sourceTree = SOURCE_ROOT; };
+		F37E83161E5698FC0072B3D8 /* SuggestionData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuggestionData.swift; path = "API-SampleApp/SuggestionData.swift"; sourceTree = SOURCE_ROOT; };
+		F37E83171E5698FC0072B3D8 /* SuggestionLoader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SuggestionLoader.swift; path = "API-SampleApp/SuggestionLoader.swift"; sourceTree = SOURCE_ROOT; };
+		F37E83181E5698FC0072B3D8 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = "API-SampleApp/TableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		FF9509C8D3A32E4852A65BCD /* Pods-Prototype.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prototype.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Prototype/Pods-Prototype.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,29 +49,18 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				705656E61DE49185002709D4 /* Pods_Prototype.framework in Frameworks */,
 				704254381DDA129300DC51D4 /* libsqlite3.tbd in Frameworks */,
-				BD95CB70ECF12B0A8EC7E7AE /* Pods_Prototype.framework in Frameworks */,
+				BCF2A7D1A314F286ED8EBE7C /* Pods_API_SampleApp.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7095DC491DDDF51800EA99B7 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				7095DC501DDDF51800EA99B7 /* libZowdowSDK.a */,
-				7095DC521DDDF51800EA99B7 /* ZowdowSDKResources.bundle */,
-				7095DC541DDDF51800EA99B7 /* libMangleNames.a */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
 		7099C1211DD4ABB200AC49A2 = {
 			isa = PBXGroup;
 			children = (
-				7099C12C1DD4ABB200AC49A2 /* Prototype */,
+				7099C12C1DD4ABB200AC49A2 /* API-SampleApp */,
 				7099C12B1DD4ABB200AC49A2 /* Products */,
 				7099C13F1DD4AEE100AC49A2 /* Frameworks */,
 				907936E530FB3094E90F22E6 /* Pods */,
@@ -117,38 +70,35 @@
 		7099C12B1DD4ABB200AC49A2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7099C12A1DD4ABB200AC49A2 /* Prototype.app */,
+				7099C12A1DD4ABB200AC49A2 /* API-SampleApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7099C12C1DD4ABB200AC49A2 /* Prototype */ = {
+		7099C12C1DD4ABB200AC49A2 /* API-SampleApp */ = {
 			isa = PBXGroup;
 			children = (
-				7099C12D1DD4ABB200AC49A2 /* AppDelegate.swift */,
-				7099C12F1DD4ABB200AC49A2 /* RootViewController.swift */,
-				F37AF4161E32C6F500EDE17D /* APIParameters.swift */,
-				F37AF4181E32EE8E00EDE17D /* SuggestionLoader.swift */,
-				7099C1311DD4ABB200AC49A2 /* Main.storyboard */,
-				7099C1341DD4ABB200AC49A2 /* Assets.xcassets */,
-				7099C1361DD4ABB200AC49A2 /* LaunchScreen.storyboard */,
-				7099C1391DD4ABB200AC49A2 /* Info.plist */,
-				F37AF4131E3290BD00EDE17D /* Prototype-Bridging-Header.h */,
+				F37E830A1E5698FC0072B3D8 /* API-SampleApp-Bridging-Header.h */,
+				F37E830B1E5698FC0072B3D8 /* APIParameters.swift */,
+				F37E830C1E5698FC0072B3D8 /* AppDelegate.swift */,
+				F37E830D1E5698FC0072B3D8 /* Assets.xcassets */,
+				F37E830E1E5698FC0072B3D8 /* Base.lproj */,
+				F37E83131E5698FC0072B3D8 /* CardData.swift */,
+				F37E83141E5698FC0072B3D8 /* Info.plist */,
+				F37E83151E5698FC0072B3D8 /* RootViewController.swift */,
+				F37E83161E5698FC0072B3D8 /* SuggestionData.swift */,
+				F37E83171E5698FC0072B3D8 /* SuggestionLoader.swift */,
+				F37E83181E5698FC0072B3D8 /* TableViewCell.swift */,
 			);
+			name = "API-SampleApp";
 			path = Prototype;
 			sourceTree = "<group>";
 		};
 		7099C13F1DD4AEE100AC49A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				7056E3F51DF5B5FE00E14459 /* Pods_PodIntegration.framework */,
-				7056E3F11DF5B5A100E14459 /* Pods_PodIntegration.framework */,
-				7056E3EC1DF5B4F400E14459 /* libZowdowSDK.a */,
-				705656E51DE49185002709D4 /* Pods_Prototype.framework */,
-				7095DC481DDDF51800EA99B7 /* ZowdowSDK.xcodeproj */,
 				704254321DDA110D00DC51D4 /* libsqlite3.tbd */,
-				64A4897CC581551AA3375714 /* Pods_Prototype.framework */,
-				4DF1A23055F78BD930562CD5 /* Pods_PodIntegration.framework */,
+				E986A733522CDD38AD1723FB /* Pods_API_SampleApp.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -158,16 +108,28 @@
 			children = (
 				FF9509C8D3A32E4852A65BCD /* Pods-Prototype.debug.xcconfig */,
 				B2F1AFBBBCF3A5EE13AA4C20 /* Pods-Prototype.release.xcconfig */,
+				C070374004A36F5C2C4DA5AA /* Pods-API-SampleApp.debug.xcconfig */,
+				432D8F6E805272A1AE3697B3 /* Pods-API-SampleApp.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		F37E830E1E5698FC0072B3D8 /* Base.lproj */ = {
+			isa = PBXGroup;
+			children = (
+				F37E830F1E5698FC0072B3D8 /* LaunchScreen.storyboard */,
+				F37E83111E5698FC0072B3D8 /* Main.storyboard */,
+			);
+			name = Base.lproj;
+			path = "API-SampleApp/Base.lproj";
+			sourceTree = SOURCE_ROOT;
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7099C1291DD4ABB200AC49A2 /* Prototype */ = {
+		7099C1291DD4ABB200AC49A2 /* API-SampleApp */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7099C13C1DD4ABB200AC49A2 /* Build configuration list for PBXNativeTarget "Prototype" */;
+			buildConfigurationList = 7099C13C1DD4ABB200AC49A2 /* Build configuration list for PBXNativeTarget "API-SampleApp" */;
 			buildPhases = (
 				0E1515F08C7699189097123A /* [CP] Check Pods Manifest.lock */,
 				7099C1261DD4ABB200AC49A2 /* Sources */,
@@ -179,12 +141,10 @@
 			buildRules = (
 			);
 			dependencies = (
-				7095DC581DDDF53A00EA99B7 /* PBXTargetDependency */,
-				7095DC561DDDF53600EA99B7 /* PBXTargetDependency */,
 			);
-			name = Prototype;
+			name = "API-SampleApp";
 			productName = Prototype;
-			productReference = 7099C12A1DD4ABB200AC49A2 /* Prototype.app */;
+			productReference = 7099C12A1DD4ABB200AC49A2 /* API-SampleApp.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -205,7 +165,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 7099C1251DD4ABB200AC49A2 /* Build configuration list for PBXProject "Prototype" */;
+			buildConfigurationList = 7099C1251DD4ABB200AC49A2 /* Build configuration list for PBXProject "API-SampleApp" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -216,51 +176,22 @@
 			mainGroup = 7099C1211DD4ABB200AC49A2;
 			productRefGroup = 7099C12B1DD4ABB200AC49A2 /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-				{
-					ProductGroup = 7095DC491DDDF51800EA99B7 /* Products */;
-					ProjectRef = 7095DC481DDDF51800EA99B7 /* ZowdowSDK.xcodeproj */;
-				},
-			);
 			projectRoot = "";
 			targets = (
-				7099C1291DD4ABB200AC49A2 /* Prototype */,
+				7099C1291DD4ABB200AC49A2 /* API-SampleApp */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXReferenceProxy section */
-		7095DC501DDDF51800EA99B7 /* libZowdowSDK.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libZowdowSDK.a;
-			remoteRef = 7095DC4F1DDDF51800EA99B7 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		7095DC521DDDF51800EA99B7 /* ZowdowSDKResources.bundle */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = ZowdowSDKResources.bundle;
-			remoteRef = 7095DC511DDDF51800EA99B7 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		7095DC541DDDF51800EA99B7 /* libMangleNames.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libMangleNames.a;
-			remoteRef = 7095DC531DDDF51800EA99B7 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		7099C1281DD4ABB200AC49A2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7099C1381DD4ABB200AC49A2 /* LaunchScreen.storyboard in Resources */,
-				7099C1351DD4ABB200AC49A2 /* Assets.xcassets in Resources */,
-				7099C1331DD4ABB200AC49A2 /* Main.storyboard in Resources */,
+				F37E831F1E5698FC0072B3D8 /* Info.plist in Resources */,
+				F37E831D1E5698FC0072B3D8 /* Main.storyboard in Resources */,
+				F37E831B1E5698FC0072B3D8 /* Assets.xcassets in Resources */,
+				F37E831C1E5698FC0072B3D8 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,7 +225,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Prototype/Pods-Prototype-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-API-SampleApp/Pods-API-SampleApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F07D26DFA45A30A230A8064B /* [CP] Embed Pods Frameworks */ = {
@@ -309,7 +240,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Prototype/Pods-Prototype-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-API-SampleApp/Pods-API-SampleApp-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -319,43 +250,33 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F37AF4191E32EE8E00EDE17D /* SuggestionLoader.swift in Sources */,
-				F37AF4171E32C6F500EDE17D /* APIParameters.swift in Sources */,
-				7099C1301DD4ABB200AC49A2 /* RootViewController.swift in Sources */,
-				7099C12E1DD4ABB200AC49A2 /* AppDelegate.swift in Sources */,
+				F37E831E1E5698FC0072B3D8 /* CardData.swift in Sources */,
+				F37E831A1E5698FC0072B3D8 /* AppDelegate.swift in Sources */,
+				F37E83201E5698FC0072B3D8 /* RootViewController.swift in Sources */,
+				F37E83211E5698FC0072B3D8 /* SuggestionData.swift in Sources */,
+				F37E83221E5698FC0072B3D8 /* SuggestionLoader.swift in Sources */,
+				F37E83231E5698FC0072B3D8 /* TableViewCell.swift in Sources */,
+				F37E83191E5698FC0072B3D8 /* APIParameters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
-/* Begin PBXTargetDependency section */
-		7095DC561DDDF53600EA99B7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ZowdowSDK;
-			targetProxy = 7095DC551DDDF53600EA99B7 /* PBXContainerItemProxy */;
-		};
-		7095DC581DDDF53A00EA99B7 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = ZowdowSDKResources;
-			targetProxy = 7095DC571DDDF53A00EA99B7 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
-
 /* Begin PBXVariantGroup section */
-		7099C1311DD4ABB200AC49A2 /* Main.storyboard */ = {
+		F37E830F1E5698FC0072B3D8 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				7099C1321DD4ABB200AC49A2 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		7099C1361DD4ABB200AC49A2 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				7099C1371DD4ABB200AC49A2 /* Base */,
+				F37E83101E5698FC0072B3D8 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		F37E83111E5698FC0072B3D8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				F37E83121E5698FC0072B3D8 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -460,13 +381,13 @@
 		};
 		7099C13D1DD4ABB200AC49A2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = FF9509C8D3A32E4852A65BCD /* Pods-Prototype.debug.xcconfig */;
+			baseConfigurationReference = C070374004A36F5C2C4DA5AA /* Pods-API-SampleApp.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 92L55L5J5T;
-				INFOPLIST_FILE = Prototype/Info.plist;
+				INFOPLIST_FILE = "API-SampleApp/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-all_load";
@@ -474,7 +395,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "d0a68d11-1a6b-4045-b912-b1e7d828dab5";
 				PROVISIONING_PROFILE_SPECIFIER = Wildcard;
-				SWIFT_OBJC_BRIDGING_HEADER = "Prototype/Prototype-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "API-SampleApp/API-SampleApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -482,14 +403,14 @@
 		};
 		7099C13E1DD4ABB200AC49A2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B2F1AFBBBCF3A5EE13AA4C20 /* Pods-Prototype.release.xcconfig */;
+			baseConfigurationReference = 432D8F6E805272A1AE3697B3 /* Pods-API-SampleApp.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DEVELOPMENT_TEAM = 92L55L5J5T;
-				INFOPLIST_FILE = Prototype/Info.plist;
+				INFOPLIST_FILE = "API-SampleApp/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-all_load";
@@ -497,7 +418,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "c49e86f4-9e27-49fe-b04a-8ab402d076ec";
 				PROVISIONING_PROFILE_SPECIFIER = PrototypeAdHoc;
-				SWIFT_OBJC_BRIDGING_HEADER = "Prototype/Prototype-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "API-SampleApp/API-SampleApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
@@ -505,7 +426,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7099C1251DD4ABB200AC49A2 /* Build configuration list for PBXProject "Prototype" */ = {
+		7099C1251DD4ABB200AC49A2 /* Build configuration list for PBXProject "API-SampleApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7099C13A1DD4ABB200AC49A2 /* Debug */,
@@ -514,7 +435,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7099C13C1DD4ABB200AC49A2 /* Build configuration list for PBXNativeTarget "Prototype" */ = {
+		7099C13C1DD4ABB200AC49A2 /* Build configuration list for PBXNativeTarget "API-SampleApp" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				7099C13D1DD4ABB200AC49A2 /* Debug */,

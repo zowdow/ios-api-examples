@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7056E3CE1DF5B19500E14459"
-               BuildableName = "PodIntegration.app"
-               BlueprintName = "PodIntegration"
-               ReferencedContainer = "container:Prototype.xcodeproj">
+               BlueprintIdentifier = "7099C1291DD4ABB200AC49A2"
+               BuildableName = "API-SampleApp.app"
+               BlueprintName = "API-SampleApp"
+               ReferencedContainer = "container:API-SampleApp.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7056E3CE1DF5B19500E14459"
-            BuildableName = "PodIntegration.app"
-            BlueprintName = "PodIntegration"
-            ReferencedContainer = "container:Prototype.xcodeproj">
+            BlueprintIdentifier = "7099C1291DD4ABB200AC49A2"
+            BuildableName = "API-SampleApp.app"
+            BlueprintName = "API-SampleApp"
+            ReferencedContainer = "container:API-SampleApp.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -49,18 +49,26 @@
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
+      stopOnEveryThreadSanitizerIssue = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7056E3CE1DF5B19500E14459"
-            BuildableName = "PodIntegration.app"
-            BlueprintName = "PodIntegration"
-            ReferencedContainer = "container:Prototype.xcodeproj">
+            BlueprintIdentifier = "7099C1291DD4ABB200AC49A2"
+            BuildableName = "API-SampleApp.app"
+            BlueprintName = "API-SampleApp"
+            ReferencedContainer = "container:API-SampleApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "OS_ACTIVITY_MODE"
+            value = "disable"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -74,10 +82,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "7056E3CE1DF5B19500E14459"
-            BuildableName = "PodIntegration.app"
-            BlueprintName = "PodIntegration"
-            ReferencedContainer = "container:Prototype.xcodeproj">
+            BlueprintIdentifier = "7099C1291DD4ABB200AC49A2"
+            BuildableName = "API-SampleApp.app"
+            BlueprintName = "API-SampleApp"
+            ReferencedContainer = "container:API-SampleApp.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

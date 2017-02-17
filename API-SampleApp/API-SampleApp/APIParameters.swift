@@ -32,7 +32,6 @@ class APIParameters {
     }
     
     let app_id: String = Bundle.main.bundleIdentifier!
-    var q: String = ""
     let device_id: String = ASIdentifierManager.shared().isAdvertisingTrackingEnabled ? ASIdentifierManager.shared().advertisingIdentifier.uuidString : (UIDevice.current.identifierForVendor?.uuidString)!
     
     var deviceLocation: CLLocation? {
@@ -100,7 +99,6 @@ class APIParameters {
     var params: [String: Any] {
         return [
             "app_id" : app_id,
-            "q" : q,
             "device_id" : device_id,
             "lat" : NSNumber(value: Float(lat)),
             "long" : NSNumber(value: Float(long)),
