@@ -101,26 +101,49 @@ extension RootViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if let model = model {
             if let cards = model[collectionView.tag].cards {
                 do {
-                    let data = try Data(contentsOf: cards[indexPath.row].url)
+                    let cardData = cards[indexPath.row]
+                    let data = try Data(contentsOf: cardData.url)
                     let image = UIImage(data: data)
                     let imageView = UIImageView()
                     imageView.image = image
                     imageView.layer.borderWidth = 1
                     imageView.layer.borderColor = UIColor.black.cgColor
                     cell.backgroundView = imageView
+                    
+                    if cardData.impressionurl != nil {
+                        cardData.trackImpression()
+                    }
                 } catch {
                 }
             }
         }
-        //cell.backgroundColor = .red
-        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Collection view at row \(collectionView.tag) selected index path \(indexPath)")
+        if let model = model {
+            if let cards = model[collectionView.tag].cards {
+                let cardData = cards[indexPath.row]
+                if let url = cardData.actionurl {
+                    if #available(iOS 9.0, *) {
+                        let vc = SFSafariViewController(url: url)
+                        self.present(vc, animated: true, completion: nil)
+                        
+                        if cardData.clickurl != nil {
+                            cardData.trackClick()
+                        }
+                    } else {
+                        // Fallback on earlier versions
+                    }
+                }
+            }
+        }
     }
 }
 

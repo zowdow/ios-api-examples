@@ -16,6 +16,9 @@ class CardData {
     var rid: String
     var card_format: String
     var cardRank: NSNumber
+    var actionurl: URL?
+    var clickurl: URL?
+    var impressionurl: URL?
     
     init() {
         cardID = ""
@@ -35,5 +38,18 @@ class CardData {
         rid = ""
         card_format = json["card_format"] as! String
         cardRank = json["cardRank"] as! NSNumber
+        if let actions = json["actions"] as? Array<Dictionary<String, AnyObject>> {
+            actionurl = URL(string: actions[0]["action_target"] as! String)
+        }
+        clickurl = URL(string: json["card_click_url"] as! String)
+        impressionurl = URL(string: json["card_impression_url"] as! String)
+    }
+    
+    func trackClick() {
+        URLSession.shared.dataTask(with: clickurl!)
+    }
+    
+    func trackImpression() {
+        URLSession.shared.dataTask(with: impressionurl!)
     }
 }
