@@ -11,9 +11,9 @@ import Foundation
 class SuggestionData {
     var suggestion: String
     var queryFragment: String
-    var cards: Array<CardData>?
-    var rank: NSNumber
-    var suggestionId: String
+    var cards: [CardData]?
+    var rank: Int
+    var suggestionId: Int
     var rid: String
     var ttl: Int
     var latitude: Float?
@@ -22,17 +22,17 @@ class SuggestionData {
     init() {
         suggestion = ""
         queryFragment = ""
-        rank = NSNumber()
-        suggestionId = ""
+        rank = 0
+        suggestionId = 0
         rid = ""
         ttl = 0
     }
     
-    init(json: Dictionary<String, AnyObject>) {
+    init(json: [String: AnyObject]) {
         suggestion = json["suggestion"] as! String
         queryFragment = json["queryFragment"] as! String
-        rank = json["suggRank"] as! NSNumber
-        suggestionId = (json["id"] as! NSNumber).stringValue
+        rank = json["suggRank"] as! Int
+        suggestionId = json["id"] as! Int
         rid = ""
         ttl = 0
     }

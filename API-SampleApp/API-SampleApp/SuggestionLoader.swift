@@ -13,12 +13,11 @@ class SuggestionLoader {
     let zowdowAPIResponseRecordsKey = "records"
     let zowdowAPIResponseMetaKey = "_meta"
     
-    func search(for text: String, completion: @escaping (_ response: Array<SuggestionData>?) -> Void) {
+    func search(for text: String, completion: @escaping (_ response: [SuggestionData]?) -> Void) {
         if (text.characters.count > 0) {
             var params = APIParameters.sharedInstance.params
-            params.updateValue(text, forKey: "q")
-            params.updateValue(NSNumber(value: 1), forKey: "tracking")
-            let urlRequest = request(with: text, parameters: params as Dictionary<String, AnyObject>)?.copy() as! URLRequest
+            params["q"] = text
+            let urlRequest = request(parameters: params as [String: AnyObject])?.copy() as! URLRequest
             URLSession.shared.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
                 if (data != nil) {
                     if let jsonData = self.decodeAndValidateJSON(data: data!) {
@@ -30,8 +29,7 @@ class SuggestionLoader {
         }
     }
     
-    func request(with query: String?, parameters: Dictionary<String, AnyObject>) -> NSMutableURLRequest? {
-        assert(query != nil)
+    func request(parameters: [String: AnyObject]) -> NSMutableURLRequest? {
         let baseURL = URL(string: zowdowAPIBaseURLUnified)
         if var fullURL = URLComponents(url: baseURL!, resolvingAgainstBaseURL: true) {
             fullURL.query = parameters.urlEncodedString()
@@ -44,7 +42,7 @@ class SuggestionLoader {
         }
     }
     
-    func decodeAndValidateJSON(data: Data) -> Dictionary<String, AnyObject>? {
+    func decodeAndValidateJSON(data: Data) -> [String: AnyObject]? {
         do {
             let parsedData = try JSONSerialization.jsonObject(with: data, options: []) as! [String:AnyObject]
             if (parsedData.keys.contains(zowdowAPIResponseRecordsKey) && parsedData.keys.contains(zowdowAPIResponseMetaKey)) {
@@ -56,16 +54,16 @@ class SuggestionLoader {
         }
     }
     
-    func parseData(data: Dictionary<String, AnyObject>) -> Array<SuggestionData>? {
+    func parseData(data: [String: AnyObject]) -> [SuggestionData]? {
         if (data.count == 0) {
             return nil
         }
         
-        var parsedResponseData: Array<SuggestionData>?
+        var parsedResponseData: [SuggestionData]?
         autoreleasepool {
             let meta = data[zowdowAPIResponseMetaKey]
             let rid = meta?["rid"] as! String
-            let ttl = (meta?["ttl"] as! NSNumber) as Int
+            let ttl = meta?["ttl"] as! Int
             var latitude: Float?
             var longitude: Float?
             if let latitudeString = meta?["latitude"] as? String {
@@ -74,27 +72,27 @@ class SuggestionLoader {
             if let longitudeString = meta?["longitude"] as? String {
                 longitude = Float(longitudeString)
             }
-            parsedResponseData = parseSuggestions(responseObjects: data[zowdowAPIResponseRecordsKey] as! Array<AnyObject>, rid: rid, ttl: ttl, latitude: latitude, longitude: longitude)
+            parsedResponseData = parseSuggestions(responseObjects: data[zowdowAPIResponseRecordsKey] as! [AnyObject], rid: rid, ttl: ttl, latitude: latitude, longitude: longitude)
         }
         return parsedResponseData
     }
     
-    func parseSuggestions(responseObjects: Array<AnyObject>, rid: String, ttl: Int, latitude: Float?, longitude: Float?) -> Array<SuggestionData>? {
-        var suggestions: Array<SuggestionData> = Array()
+    func parseSuggestions(responseObjects: [AnyObject], rid: String, ttl: Int, latitude: Float?, longitude: Float?) -> [SuggestionData]? {
+        var suggestions: [SuggestionData] = []
         if (responseObjects.count > 0) {
-            for (_, querySuggestionInfo) in responseObjects.enumerated() {
-                if let querySuggestionInfo = querySuggestionInfo as? Dictionary<String, AnyObject> {
-                    let suggestion = querySuggestionInfo["suggestion"] as! Dictionary<String, AnyObject>
+            for querySuggestionInfo in responseObjects {
+                if let querySuggestionInfo = querySuggestionInfo as? [String: AnyObject] {
+                    let suggestion = querySuggestionInfo["suggestion"] as! [String: AnyObject]
                     let suggestionData = SuggestionData(json: suggestion)
                     suggestionData.rid = rid;
                     suggestionData.ttl = ttl;
                     suggestionData.latitude = latitude
                     suggestionData.longitude = longitude
                     
-                    var cards: Array<CardData> = Array()
-                    if let responseCards = suggestion["cards"] as? Array<AnyObject> {
+                    var cards: [CardData] = []
+                    if let responseCards = suggestion["cards"] as? [AnyObject] {
                         for (_, queryCardInfo) in responseCards.enumerated() {
-                            let cardData = CardData(json: queryCardInfo as! Dictionary<String, AnyObject>)
+                            var cardData = CardData(json: queryCardInfo as! [String: AnyObject])
                             cardData.rid = rid
                             cards.append(cardData)
                         }

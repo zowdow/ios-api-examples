@@ -8,14 +8,14 @@
 
 import Foundation
 
-class CardData {
+struct CardData {
     var cardID: String
     var url: URL
     var height: Float
     var width: Float
     var rid: String
     var card_format: String
-    var cardRank: NSNumber
+    var cardRank: Int
     var actionurl: URL?
     var clickurl: URL?
     var impressionurl: URL?
@@ -27,18 +27,18 @@ class CardData {
         width = 0.0
         rid = ""
         card_format = ""
-        cardRank = NSNumber()
+        cardRank = 0
     }
     
-    init(json: Dictionary<String, AnyObject>) {
+    init(json: [String: AnyObject]) {
         cardID = json["id"] as! String
-        url = URL.init(string: json["x3"] as! String)!
-        height = (json["x3_h"] as! NSNumber).floatValue
-        width = (json["x3_w"] as! NSNumber).floatValue
+        url = URL(string: json["x3"] as! String)!
+        height = json["x3_h"] as! Float
+        width = json["x3_w"] as! Float
         rid = ""
         card_format = json["card_format"] as! String
-        cardRank = json["cardRank"] as! NSNumber
-        if let actions = json["actions"] as? Array<Dictionary<String, AnyObject>> {
+        cardRank = json["cardRank"] as! Int
+        if let actions = json["actions"] as? [[String: AnyObject]] {
             actionurl = URL(string: actions[0]["action_target"] as! String)
         }
         clickurl = URL(string: json["card_click_url"] as! String)

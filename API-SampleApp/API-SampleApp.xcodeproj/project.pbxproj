@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		704254381DDA129300DC51D4 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 704254321DDA110D00DC51D4 /* libsqlite3.tbd */; };
 		BCF2A7D1A314F286ED8EBE7C /* Pods_API_SampleApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E986A733522CDD38AD1723FB /* Pods_API_SampleApp.framework */; };
+		F34F0AD21E5E697A00F94020 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34F0AD11E5E697A00F94020 /* CollectionViewCell.swift */; };
+		F34F0AD41E5E70E600F94020 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34F0AD31E5E70E600F94020 /* CollectionViewController.swift */; };
 		F37E83191E5698FC0072B3D8 /* APIParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E830B1E5698FC0072B3D8 /* APIParameters.swift */; };
 		F37E831A1E5698FC0072B3D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E830C1E5698FC0072B3D8 /* AppDelegate.swift */; };
 		F37E831B1E5698FC0072B3D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F37E830D1E5698FC0072B3D8 /* Assets.xcassets */; };
@@ -20,6 +22,7 @@
 		F37E83231E5698FC0072B3D8 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E83181E5698FC0072B3D8 /* TableViewCell.swift */; };
 		F37E83291E577F960072B3D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F37E83271E577F960072B3D8 /* LaunchScreen.storyboard */; };
 		F37E832C1E577F9B0072B3D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F37E832A1E577F9B0072B3D8 /* Main.storyboard */; };
+		F3F700311E5E5EC500B1C2D4 /* Dictionary+URLEncode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F700301E5E5EC500B1C2D4 /* Dictionary+URLEncode.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +32,8 @@
 		B2F1AFBBBCF3A5EE13AA4C20 /* Pods-Prototype.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prototype.release.xcconfig"; path = "Pods/Target Support Files/Pods-Prototype/Pods-Prototype.release.xcconfig"; sourceTree = "<group>"; };
 		C070374004A36F5C2C4DA5AA /* Pods-API-SampleApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-API-SampleApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-API-SampleApp/Pods-API-SampleApp.debug.xcconfig"; sourceTree = "<group>"; };
 		E986A733522CDD38AD1723FB /* Pods_API_SampleApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_API_SampleApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F34F0AD11E5E697A00F94020 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewCell.swift; path = "API-SampleApp/CollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
+		F34F0AD31E5E70E600F94020 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewController.swift; path = "API-SampleApp/CollectionViewController.swift"; sourceTree = SOURCE_ROOT; };
 		F37E830A1E5698FC0072B3D8 /* API-SampleApp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "API-SampleApp-Bridging-Header.h"; path = "API-SampleApp/API-SampleApp-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		F37E830B1E5698FC0072B3D8 /* APIParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIParameters.swift; path = "API-SampleApp/APIParameters.swift"; sourceTree = SOURCE_ROOT; };
 		F37E830C1E5698FC0072B3D8 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "API-SampleApp/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
@@ -41,6 +46,7 @@
 		F37E83181E5698FC0072B3D8 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = "API-SampleApp/TableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		F37E83281E577F960072B3D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "API-SampleApp/Base.lproj/LaunchScreen.storyboard"; sourceTree = SOURCE_ROOT; };
 		F37E832B1E577F9B0072B3D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "API-SampleApp/Base.lproj/Main.storyboard"; sourceTree = SOURCE_ROOT; };
+		F3F700301E5E5EC500B1C2D4 /* Dictionary+URLEncode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+URLEncode.swift"; path = "API-SampleApp/Dictionary+URLEncode.swift"; sourceTree = SOURCE_ROOT; };
 		FF9509C8D3A32E4852A65BCD /* Pods-Prototype.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prototype.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Prototype/Pods-Prototype.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,9 +88,12 @@
 				F37E83151E5698FC0072B3D8 /* RootViewController.swift */,
 				F37E830B1E5698FC0072B3D8 /* APIParameters.swift */,
 				F37E83171E5698FC0072B3D8 /* SuggestionLoader.swift */,
+				F34F0AD31E5E70E600F94020 /* CollectionViewController.swift */,
 				F37E83161E5698FC0072B3D8 /* SuggestionData.swift */,
 				F37E83131E5698FC0072B3D8 /* CardData.swift */,
 				F37E83181E5698FC0072B3D8 /* TableViewCell.swift */,
+				F34F0AD11E5E697A00F94020 /* CollectionViewCell.swift */,
+				F3F700301E5E5EC500B1C2D4 /* Dictionary+URLEncode.swift */,
 				F37E83271E577F960072B3D8 /* LaunchScreen.storyboard */,
 				F37E830D1E5698FC0072B3D8 /* Assets.xcassets */,
 				F37E832A1E577F9B0072B3D8 /* Main.storyboard */,
@@ -243,11 +252,14 @@
 			files = (
 				F37E831E1E5698FC0072B3D8 /* CardData.swift in Sources */,
 				F37E831A1E5698FC0072B3D8 /* AppDelegate.swift in Sources */,
+				F34F0AD21E5E697A00F94020 /* CollectionViewCell.swift in Sources */,
 				F37E83201E5698FC0072B3D8 /* RootViewController.swift in Sources */,
+				F34F0AD41E5E70E600F94020 /* CollectionViewController.swift in Sources */,
 				F37E83211E5698FC0072B3D8 /* SuggestionData.swift in Sources */,
 				F37E83221E5698FC0072B3D8 /* SuggestionLoader.swift in Sources */,
 				F37E83231E5698FC0072B3D8 /* TableViewCell.swift in Sources */,
 				F37E83191E5698FC0072B3D8 /* APIParameters.swift in Sources */,
+				F3F700311E5E5EC500B1C2D4 /* Dictionary+URLEncode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

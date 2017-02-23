@@ -100,22 +100,22 @@ class APIParameters {
         return [
             "app_id" : app_id,
             "device_id" : device_id,
-            "lat" : NSNumber(value: Float(lat)),
-            "long" : NSNumber(value: Float(long)),
-            "location_accuracy" : NSNumber(value: Float(location_accuracy)),
+            "lat" : lat,
+            "long" : long,
+            "location_accuracy" : location_accuracy,
             "locale" : locale,
             "timezone" : timezone,
             "os" : os,
             "app_ver" : app_ver,
             "app_build" : app_build,
-            "screen_scale" : NSNumber(value: Float(screen_scale)),
+            "screen_scale" : screen_scale,
             "system_ver" : system_ver,
             "device_model" : device_model,
             "network" : network,
             "card_format" : card_format,
-            "s_limit" : NSNumber(value: s_limit),
-            "c_limit" : NSNumber(value: c_limit),
-            "tracking" : NSNumber(value: 1)
+            "s_limit" : s_limit,
+            "c_limit" : c_limit,
+            "tracking" : 1
         ]
     }
 }
