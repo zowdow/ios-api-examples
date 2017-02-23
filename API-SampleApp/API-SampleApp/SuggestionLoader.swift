@@ -82,18 +82,19 @@ class SuggestionLoader {
         if (responseObjects.count > 0) {
             for querySuggestionInfo in responseObjects {
                 if let querySuggestionInfo = querySuggestionInfo as? [String: AnyObject] {
-                    let suggestion = querySuggestionInfo["suggestion"] as! [String: AnyObject]
+                    var suggestion = querySuggestionInfo["suggestion"] as! [String: AnyObject]
+                    suggestion["rid"] = rid as AnyObject?
+                    suggestion["ttl"] = ttl as AnyObject?
+                    suggestion["lat"] = latitude as AnyObject?
+                    suggestion["long"] = longitude as AnyObject?
                     let suggestionData = SuggestionData(json: suggestion)
-                    suggestionData.rid = rid;
-                    suggestionData.ttl = ttl;
-                    suggestionData.latitude = latitude
-                    suggestionData.longitude = longitude
                     
                     var cards: [CardData] = []
                     if let responseCards = suggestion["cards"] as? [AnyObject] {
-                        for (_, queryCardInfo) in responseCards.enumerated() {
-                            var cardData = CardData(json: queryCardInfo as! [String: AnyObject])
-                            cardData.rid = rid
+                        for queryCardInfo in responseCards {
+                            var card = queryCardInfo as! [String: AnyObject]
+                            card["rid"] = rid as AnyObject?
+                            let cardData = CardData(json: card)
                             cards.append(cardData)
                         }
                     }

@@ -19,21 +19,14 @@ class SuggestionData {
     var latitude: Float?
     var longitude: Float?
     
-    init() {
-        suggestion = ""
-        queryFragment = ""
-        rank = 0
-        suggestionId = 0
-        rid = ""
-        ttl = 0
-    }
-    
     init(json: [String: AnyObject]) {
         suggestion = json["suggestion"] as! String
         queryFragment = json["queryFragment"] as! String
         rank = json["suggRank"] as! Int
         suggestionId = json["id"] as! Int
-        rid = ""
-        ttl = 0
+        rid = json["rid"] as! String
+        ttl = json["ttl"] as! Int
+        latitude = json["lat"] as? Float
+        longitude = json["long"] as? Float
     }
 }
