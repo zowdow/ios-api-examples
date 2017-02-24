@@ -15,13 +15,13 @@
 		F37E831A1E5698FC0072B3D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E830C1E5698FC0072B3D8 /* AppDelegate.swift */; };
 		F37E831B1E5698FC0072B3D8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F37E830D1E5698FC0072B3D8 /* Assets.xcassets */; };
 		F37E831E1E5698FC0072B3D8 /* CardData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E83131E5698FC0072B3D8 /* CardData.swift */; };
-		F37E831F1E5698FC0072B3D8 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F37E83141E5698FC0072B3D8 /* Info.plist */; };
 		F37E83201E5698FC0072B3D8 /* RootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E83151E5698FC0072B3D8 /* RootViewController.swift */; };
 		F37E83211E5698FC0072B3D8 /* SuggestionData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E83161E5698FC0072B3D8 /* SuggestionData.swift */; };
 		F37E83221E5698FC0072B3D8 /* SuggestionLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E83171E5698FC0072B3D8 /* SuggestionLoader.swift */; };
 		F37E83231E5698FC0072B3D8 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E83181E5698FC0072B3D8 /* TableViewCell.swift */; };
 		F37E83291E577F960072B3D8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F37E83271E577F960072B3D8 /* LaunchScreen.storyboard */; };
 		F37E832C1E577F9B0072B3D8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F37E832A1E577F9B0072B3D8 /* Main.storyboard */; };
+		F3BEDDA61E5FC9A200741195 /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3BEDDA51E5FC9A200741195 /* Reachability.swift */; };
 		F3F700311E5E5EC500B1C2D4 /* Dictionary+URLEncode.swift in Sources */ = {isa = PBXBuildFile; fileRef = F3F700301E5E5EC500B1C2D4 /* Dictionary+URLEncode.swift */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +46,7 @@
 		F37E83181E5698FC0072B3D8 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TableViewCell.swift; path = "API-SampleApp/TableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		F37E83281E577F960072B3D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "API-SampleApp/Base.lproj/LaunchScreen.storyboard"; sourceTree = SOURCE_ROOT; };
 		F37E832B1E577F9B0072B3D8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "API-SampleApp/Base.lproj/Main.storyboard"; sourceTree = SOURCE_ROOT; };
+		F3BEDDA51E5FC9A200741195 /* Reachability.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Reachability.swift; path = "API-SampleApp/Reachability.swift"; sourceTree = SOURCE_ROOT; };
 		F3F700301E5E5EC500B1C2D4 /* Dictionary+URLEncode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Dictionary+URLEncode.swift"; path = "API-SampleApp/Dictionary+URLEncode.swift"; sourceTree = SOURCE_ROOT; };
 		FF9509C8D3A32E4852A65BCD /* Pods-Prototype.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prototype.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Prototype/Pods-Prototype.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,6 +95,7 @@
 				F37E83181E5698FC0072B3D8 /* TableViewCell.swift */,
 				F34F0AD11E5E697A00F94020 /* CollectionViewCell.swift */,
 				F3F700301E5E5EC500B1C2D4 /* Dictionary+URLEncode.swift */,
+				F3BEDDA51E5FC9A200741195 /* Reachability.swift */,
 				F37E83271E577F960072B3D8 /* LaunchScreen.storyboard */,
 				F37E830D1E5698FC0072B3D8 /* Assets.xcassets */,
 				F37E832A1E577F9B0072B3D8 /* Main.storyboard */,
@@ -189,7 +191,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				F37E83291E577F960072B3D8 /* LaunchScreen.storyboard in Resources */,
-				F37E831F1E5698FC0072B3D8 /* Info.plist in Resources */,
 				F37E831B1E5698FC0072B3D8 /* Assets.xcassets in Resources */,
 				F37E832C1E577F9B0072B3D8 /* Main.storyboard in Resources */,
 			);
@@ -257,6 +258,7 @@
 				F34F0AD41E5E70E600F94020 /* CollectionViewController.swift in Sources */,
 				F37E83211E5698FC0072B3D8 /* SuggestionData.swift in Sources */,
 				F37E83221E5698FC0072B3D8 /* SuggestionLoader.swift in Sources */,
+				F3BEDDA61E5FC9A200741195 /* Reachability.swift in Sources */,
 				F37E83231E5698FC0072B3D8 /* TableViewCell.swift in Sources */,
 				F37E83191E5698FC0072B3D8 /* APIParameters.swift in Sources */,
 				F3F700311E5E5EC500B1C2D4 /* Dictionary+URLEncode.swift in Sources */,

@@ -51,6 +51,7 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
             self.present(vc, animated: true, completion: nil)
         } else {
             // Fallback on earlier versions
+            UIApplication.shared.openURL(url)
         }
         if cardData.clickurl != nil {
             cardData.trackClick()
