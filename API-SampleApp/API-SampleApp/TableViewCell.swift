@@ -9,28 +9,17 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
+    let collectionVC = CollectionViewController()
+
     @IBOutlet weak var suggestionLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
-}
 
-extension TableViewCell: UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 170, height: 40)
-    }
-    
-    func setCollectionViewDataSourceDelegate<D: UICollectionViewDataSource & UICollectionViewDelegate>(_ dataSourceDelegate: D, forRow row: Int) {
+    func setSuggestionData(data: SuggestionData) {
+        self.collectionVC.model = data
+        self.suggestionLabel.text = data.suggestion
         
-        collectionView.delegate = dataSourceDelegate
-        collectionView.dataSource = dataSourceDelegate
-        collectionView.tag = row
-        collectionView.setContentOffset(collectionView.contentOffset, animated:false)
-        collectionView.reloadData()
-    }
-    
-    var collectionViewOffset: CGFloat {
-        set { collectionView.contentOffset.x = newValue }
-        get { return collectionView.contentOffset.x }
+        self.collectionView.dataSource = collectionVC
+        self.collectionView.delegate = collectionVC
+        self.collectionView.reloadData()
     }
 }
-

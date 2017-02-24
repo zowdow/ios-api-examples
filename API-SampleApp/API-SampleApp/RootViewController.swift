@@ -55,11 +55,10 @@ extension RootViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CarouselCell", for: indexPath) as! TableViewCell
-        guard let model = model else { return cell }
-        cell.suggestionLabel.text = model[indexPath.row].suggestion
-        let collectionVC = CollectionViewController()
-        collectionVC.model = model[indexPath.row]
-        cell.setCollectionViewDataSourceDelegate(collectionVC, forRow: indexPath.row)
+        guard let model = model else {
+            return cell
+        }
+        cell.setSuggestionData(data: model[indexPath.row])
         return cell
     }
 }

@@ -15,26 +15,24 @@ class CollectionViewController: UIViewController {
 
 extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let model = model else { return 0 }
-        guard let cards = model.cards else { return 0 }
+        guard let model = model, let cards = model.cards else { return 0 }
         return cards.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
-        guard let model = model else { return cell }
-        guard let cards = model.cards else { return cell }
+        guard let model = model, let cards = model.cards else {
+            return cell
+        }
         let cardData = cards[indexPath.row]
-        cell.url = cardData.url
+        cell.loadImage(url: cardData.url)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        let cell = cell as! CollectionViewCell
-        cell.load()
-        
-        guard let model = model else { return }
-        guard let cards = model.cards else { return }
+        guard let model = model, let cards = model.cards else {
+            return
+        }
         let cardData = cards[indexPath.row]
         if cardData.impressionurl != nil {
             cardData.trackImpression()

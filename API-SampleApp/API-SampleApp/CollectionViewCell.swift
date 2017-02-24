@@ -9,19 +9,38 @@
 import UIKit
 
 class CollectionViewCell : UICollectionViewCell {
-    var url: URL?
+    private var imageView: UIImageView?
+    private var task: URLSessionDataTask?
     
-    func load() {
-        do {
-            let data = try Data(contentsOf: url!)
-            let image = UIImage(data: data)
-            let imageView = UIImageView()
-            imageView.image = image
-            imageView.layer.borderWidth = 1
+    private func setImage(image: UIImage) {
+        if self.imageView == nil {
+            self.imageView = UIImageView(frame: self.bounds)
+            guard let imageView = self.imageView else {
+                fatalError()
+            }
             imageView.layer.borderColor = UIColor.black.cgColor
-            self.backgroundView = imageView
+            imageView.layer.borderWidth = 1
+            self.contentView.addSubview(imageView)
         }
-        catch {}
+
+        self.imageView!.image = image
+    }
+    
+    func loadImage(url: URL) {
+        if let activeTask = self.task {
+            activeTask.cancel()
+        }
+        
+        self.task = URLSession.shared.dataTask(with: url, completionHandler: {data, response, error in
+            if let data = data, let image = UIImage(data: data) {
+                DispatchQueue.main.async {
+                    self.setImage(image: image)
+                }
+            } else if let error = error {
+                print("!!! \(error.localizedDescription)")
+            }
+        })
+        self.task!.resume()
     }
 }
 

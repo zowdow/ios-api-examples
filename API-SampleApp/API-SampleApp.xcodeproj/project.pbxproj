@@ -96,9 +96,9 @@
 				F34F0AD11E5E697A00F94020 /* CollectionViewCell.swift */,
 				F3F700301E5E5EC500B1C2D4 /* Dictionary+URLEncode.swift */,
 				F3BEDDA51E5FC9A200741195 /* Reachability.swift */,
+				F37E832A1E577F9B0072B3D8 /* Main.storyboard */,
 				F37E83271E577F960072B3D8 /* LaunchScreen.storyboard */,
 				F37E830D1E5698FC0072B3D8 /* Assets.xcassets */,
-				F37E832A1E577F9B0072B3D8 /* Main.storyboard */,
 				F37E83141E5698FC0072B3D8 /* Info.plist */,
 				F37E830A1E5698FC0072B3D8 /* API-SampleApp-Bridging-Header.h */,
 			);
