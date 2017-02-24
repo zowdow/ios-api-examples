@@ -7,13 +7,17 @@
 //
 
 import UIKit
-import SafariServices
 
-class CollectionViewController: UIViewController {
-    var model: SuggestionData?
+protocol CollectionViewCardClickDelegate {
+    func onCardClick(sender: CollectionViewModel, url: URL)
 }
 
-extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDataSource {
+class CollectionViewModel: NSObject {
+    var model: SuggestionData?
+    var delegate: CollectionViewCardClickDelegate?
+}
+
+extension CollectionViewModel: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         guard let model = model, let cards = model.cards else { return 0 }
         return cards.count
@@ -44,13 +48,8 @@ extension CollectionViewController: UICollectionViewDelegate, UICollectionViewDa
         guard let cards = model.cards else { return }
         let cardData = cards[indexPath.row]
         guard let url = cardData.actionurl else { return }
-        if #available(iOS 9.0, *) {
-            let vc = SFSafariViewController(url: url)
-            self.present(vc, animated: true, completion: nil)
-        } else {
-            // Fallback on earlier versions
-            UIApplication.shared.openURL(url)
-        }
+        delegate?.onCardClick(sender: self, url: url)
+        
         if cardData.clickurl != nil {
             cardData.trackClick()
         }

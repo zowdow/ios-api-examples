@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import SafariServices
 
 class RootViewController: UIViewController {
     let locationManager = CLLocationManager()
@@ -59,6 +60,7 @@ extension RootViewController: UITableViewDataSource {
         guard let model = model else {
             return cell
         }
+        cell.collectionModel.delegate = self
         cell.setSuggestionData(data: model[indexPath.row])
         return cell
     }
@@ -79,5 +81,17 @@ extension RootViewController: UISearchBarDelegate {
 extension RootViewController: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         APIParameters.sharedInstance.deviceLocation = manager.location
+    }
+}
+
+extension RootViewController: CollectionViewCardClickDelegate {
+    func onCardClick(sender: CollectionViewModel, url: URL) {
+        if #available(iOS 9.0, *) {
+            let vc = SFSafariViewController(url: url)
+            self.present(vc, animated: true, completion: nil)
+        } else {
+            // Fallback on earlier versions
+            UIApplication.shared.openURL(url)
+        }
     }
 }

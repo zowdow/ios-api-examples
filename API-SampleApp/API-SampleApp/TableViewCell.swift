@@ -9,17 +9,17 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-    let collectionVC = CollectionViewController()
+    let collectionModel = CollectionViewModel()
 
     @IBOutlet weak var suggestionLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
 
     func setSuggestionData(data: SuggestionData) {
-        self.collectionVC.model = data
+        self.collectionModel.model = data
         self.suggestionLabel.text = data.suggestion
         
-        self.collectionView.dataSource = collectionVC
-        self.collectionView.delegate = collectionVC
+        self.collectionView.dataSource = collectionModel
+        self.collectionView.delegate = collectionModel
         self.collectionView.reloadData()
     }
 }
