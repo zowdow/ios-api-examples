@@ -9,35 +9,39 @@
 import Foundation
 
 class SuggestionLoader {
+    private var task: URLSessionDataTask?
+    
     let zowdowAPIBaseURLUnified = "https://u.zowdow.com/v1/unified?"
     let zowdowAPIResponseRecordsKey = "records"
     let zowdowAPIResponseMetaKey = "_meta"
     
     func search(for text: String, completion: @escaping (_ response: [SuggestionData]?) -> Void) {
         if (text.characters.count > 0) {
+            if let activeTask = self.task {
+                activeTask.cancel()
+            }
+            
             var params = APIParameters.sharedInstance.params
             params["q"] = text
-            let urlRequest = request(parameters: params as [String: AnyObject])?.copy() as! URLRequest
-            URLSession.shared.dataTask(with: urlRequest, completionHandler: { (data, response, error) in
-                if (data != nil) {
-                    if let jsonData = self.decodeAndValidateJSON(data: data!) {
-                        let resp = self.parseData(data: jsonData)
-                        return completion(resp)
-                    }
+            guard let requestUrl = request(parameters: params as [String: AnyObject]) else {
+                return
+            }
+            self.task = URLSession.shared.dataTask(with: requestUrl, completionHandler: { (data, response, error) in
+                if let data = data, let jsonData = self.decodeAndValidateJSON(data: data) {
+                    let resp = self.parseData(data: jsonData)
+                    return completion(resp)
                 }
-            }).resume()
+            })
+            self.task!.resume()
         }
     }
     
-    func request(parameters: [String: AnyObject]) -> NSMutableURLRequest? {
+    func request(parameters: [String: AnyObject]) -> URL? {
         let baseURL = URL(string: zowdowAPIBaseURLUnified)
         if var fullURL = URLComponents(url: baseURL!, resolvingAgainstBaseURL: true) {
             fullURL.query = parameters.urlEncodedString()
-            let request = NSMutableURLRequest(url: fullURL.url!)
-            request.httpMethod = "GET"
-            return request
-        }
-        else {
+            return fullURL.url
+        } else {
             return nil
         }
     }

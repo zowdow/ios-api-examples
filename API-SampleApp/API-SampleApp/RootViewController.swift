@@ -14,6 +14,7 @@ class RootViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    
     var loader: SuggestionLoader?
     var model: [SuggestionData]?
     
