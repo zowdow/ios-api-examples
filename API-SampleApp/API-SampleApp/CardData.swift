@@ -13,19 +13,17 @@ struct CardData {
     var url: URL
     var height: Float
     var width: Float
-    var rid: String
     var card_format: String
     var cardRank: Int
     var actionurl: URL?
     var clickurl: URL?
     var impressionurl: URL?
     
-    init(json: [String: AnyObject]) {
+    init(json: JSON) {
         cardID = json["id"] as! String
         url = URL(string: json["x3"] as! String)!
         height = json["x3_h"] as! Float
         width = json["x3_w"] as! Float
-        rid = json["rid"] as! String
         card_format = json["card_format"] as! String
         cardRank = json["cardRank"] as! Int
         if let actions = json["actions"] as? [[String: AnyObject]] {

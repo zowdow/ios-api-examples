@@ -41,9 +41,9 @@ class RootViewController: UIViewController {
     func doSearch(for text: String) {
         loader?.search(for: text, completion: { (resp) in
             self.model = resp
-            DispatchQueue.main.async(execute: { () -> Void in
+            DispatchQueue.main.async {
                 self.tableView.reloadData()
-            })
+            }
         })
     }
 
@@ -51,8 +51,7 @@ class RootViewController: UIViewController {
 
 extension RootViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let model = model else { return 0 }
-        return model.count
+        return model?.count ?? 0
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -60,8 +59,7 @@ extension RootViewController: UITableViewDataSource {
         guard let model = model else {
             return cell
         }
-        cell.collectionModel.delegate = self
-        cell.setSuggestionData(data: model[indexPath.row])
+        cell.prepareForUse(rowData: model[indexPath.row], clickDelegate: self)
         return cell
     }
 }

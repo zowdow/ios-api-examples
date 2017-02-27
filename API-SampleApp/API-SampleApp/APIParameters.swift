@@ -50,6 +50,32 @@ class APIParameters {
         return String(bytes: Data(bytes: &sysinfo.machine, count: Int(_SYS_NAMELEN)), encoding: .ascii)!.trimmingCharacters(in: .controlCharacters)
     }
     
+    func getNetworkType() -> String {
+        let reachability:Reachability = Reachability.init()!
+        do{
+            try reachability.startNotifier()
+            let status = reachability.currentReachabilityStatus
+            if(status == Reachability.NetworkStatus.notReachable) {
+                return ""
+            } else if (status == Reachability.NetworkStatus.reachableViaWiFi) {
+                return "wifi"
+            } else if (status == Reachability.NetworkStatus.reachableViaWWAN) {
+                let networkInfo = CTTelephonyNetworkInfo()
+                let carrierType = networkInfo.currentRadioAccessTechnology
+                switch carrierType {
+                case CTRadioAccessTechnologyGPRS?,CTRadioAccessTechnologyEdge?,CTRadioAccessTechnologyCDMA1x?: return "2g"
+                case CTRadioAccessTechnologyWCDMA?,CTRadioAccessTechnologyHSDPA?,CTRadioAccessTechnologyHSUPA?,CTRadioAccessTechnologyCDMAEVDORev0?,CTRadioAccessTechnologyCDMAEVDORevA?,CTRadioAccessTechnologyCDMAEVDORevB?,CTRadioAccessTechnologyeHRPD?: return "3g"
+                case CTRadioAccessTechnologyLTE?: return "4g"
+                default: return ""
+                }
+            } else {
+                return ""
+            }
+        } catch {
+            return ""
+        }
+    }
+    
     var params: [String: Any] {
         return [
             "app_id" : "com.zowdow.android.example",
@@ -73,29 +99,4 @@ class APIParameters {
         ]
     }
     
-    func getNetworkType() -> String {
-        let reachability:Reachability = Reachability.init()!
-        do{
-            try reachability.startNotifier()
-            let status = reachability.currentReachabilityStatus
-            if(status == Reachability.NetworkStatus.notReachable) {
-                return ""
-            } else if (status == Reachability.NetworkStatus.reachableViaWiFi) {
-                return "wifi"
-            } else if (status == Reachability.NetworkStatus.reachableViaWWAN) {
-                let networkInfo = CTTelephonyNetworkInfo()
-                let carrierType = networkInfo.currentRadioAccessTechnology
-                switch carrierType {
-                case CTRadioAccessTechnologyGPRS?,CTRadioAccessTechnologyEdge?,CTRadioAccessTechnologyCDMA1x?: return "2g"
-                case CTRadioAccessTechnologyWCDMA?,CTRadioAccessTechnologyHSDPA?,CTRadioAccessTechnologyHSUPA?,CTRadioAccessTechnologyCDMAEVDORev0?,CTRadioAccessTechnologyCDMAEVDORevA?,CTRadioAccessTechnologyCDMAEVDORevB?,CTRadioAccessTechnologyeHRPD?: return "3g"
-                case CTRadioAccessTechnologyLTE?: return "4g"
-                default: return ""
-                }
-            } else {
-                    return ""
-            }
-        } catch {
-            return ""
-        }
-    }
 }

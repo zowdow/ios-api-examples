@@ -10,20 +10,15 @@ import Foundation
 
 extension Dictionary {
     func urlEncodedString() -> String {
-        let parts = NSMutableArray()
+        var parts: [String] = []
         for (key, value) in self {
-            let part = String(format: "%@=%@", urlEncode(object: key), urlEncode(object: value))
-            parts.add(part)
+            parts.append("\(urlEncode(object: key))=\(urlEncode(object: value))")
         }
-        return parts.componentsJoined(by: "&")
+        return parts.joined(separator: "&")
     }
     
-    func toString(object: Any) -> String {
-        return String(describing: object)
-    }
-    
-    func urlEncode(object: Any) -> String {
-        return toString(object: object).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+    private func urlEncode(object: Any) -> String {
+        return String(describing: object).addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
     }
 }
 

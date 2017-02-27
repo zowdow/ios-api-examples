@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		704254381DDA129300DC51D4 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 704254321DDA110D00DC51D4 /* libsqlite3.tbd */; };
+		706CB78E1E6473D900FEF88A /* MetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706CB78D1E6473D900FEF88A /* MetaData.swift */; };
 		F34F0AD21E5E697A00F94020 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34F0AD11E5E697A00F94020 /* CollectionViewCell.swift */; };
 		F34F0AD41E5E70E600F94020 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34F0AD31E5E70E600F94020 /* CollectionViewModel.swift */; };
 		F37E83191E5698FC0072B3D8 /* APIParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E830B1E5698FC0072B3D8 /* APIParameters.swift */; };
@@ -25,11 +25,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		704254321DDA110D00DC51D4 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		706CB78D1E6473D900FEF88A /* MetaData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MetaData.swift; path = "API-SampleApp/MetaData.swift"; sourceTree = SOURCE_ROOT; };
 		7099C12A1DD4ABB200AC49A2 /* API-SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "API-SampleApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F34F0AD11E5E697A00F94020 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewCell.swift; path = "API-SampleApp/CollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		F34F0AD31E5E70E600F94020 /* CollectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewModel.swift; path = "API-SampleApp/CollectionViewModel.swift"; sourceTree = SOURCE_ROOT; };
-		F37E830A1E5698FC0072B3D8 /* API-SampleApp-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "API-SampleApp-Bridging-Header.h"; path = "API-SampleApp/API-SampleApp-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
 		F37E830B1E5698FC0072B3D8 /* APIParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIParameters.swift; path = "API-SampleApp/APIParameters.swift"; sourceTree = SOURCE_ROOT; };
 		F37E830C1E5698FC0072B3D8 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = "API-SampleApp/AppDelegate.swift"; sourceTree = SOURCE_ROOT; };
 		F37E830D1E5698FC0072B3D8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "API-SampleApp/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
@@ -50,13 +49,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				704254381DDA129300DC51D4 /* libsqlite3.tbd in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		706CB78C1E64739A00FEF88A /* DomainObjects */ = {
+			isa = PBXGroup;
+			children = (
+				706CB78D1E6473D900FEF88A /* MetaData.swift */,
+				F37E83161E5698FC0072B3D8 /* SuggestionData.swift */,
+				F37E83131E5698FC0072B3D8 /* CardData.swift */,
+			);
+			name = DomainObjects;
+			sourceTree = "<group>";
+		};
 		7099C1211DD4ABB200AC49A2 = {
 			isa = PBXGroup;
 			children = (
@@ -77,22 +85,20 @@
 		7099C12C1DD4ABB200AC49A2 /* API-SampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				706CB78C1E64739A00FEF88A /* DomainObjects */,
 				F37E830C1E5698FC0072B3D8 /* AppDelegate.swift */,
 				F37E83151E5698FC0072B3D8 /* RootViewController.swift */,
 				F37E830B1E5698FC0072B3D8 /* APIParameters.swift */,
 				F37E83171E5698FC0072B3D8 /* SuggestionLoader.swift */,
 				F34F0AD31E5E70E600F94020 /* CollectionViewModel.swift */,
-				F37E83161E5698FC0072B3D8 /* SuggestionData.swift */,
-				F37E83131E5698FC0072B3D8 /* CardData.swift */,
 				F37E83181E5698FC0072B3D8 /* TableViewCell.swift */,
 				F34F0AD11E5E697A00F94020 /* CollectionViewCell.swift */,
-				F3F700301E5E5EC500B1C2D4 /* Dictionary+URLEncode.swift */,
 				F3BEDDA51E5FC9A200741195 /* Reachability.swift */,
+				F3F700301E5E5EC500B1C2D4 /* Dictionary+URLEncode.swift */,
 				F37E832A1E577F9B0072B3D8 /* Main.storyboard */,
 				F37E83271E577F960072B3D8 /* LaunchScreen.storyboard */,
 				F37E830D1E5698FC0072B3D8 /* Assets.xcassets */,
 				F37E83141E5698FC0072B3D8 /* Info.plist */,
-				F37E830A1E5698FC0072B3D8 /* API-SampleApp-Bridging-Header.h */,
 			);
 			name = "API-SampleApp";
 			path = Prototype;
@@ -101,7 +107,6 @@
 		7099C13F1DD4AEE100AC49A2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				704254321DDA110D00DC51D4 /* libsqlite3.tbd */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -182,6 +187,7 @@
 			files = (
 				F37E831E1E5698FC0072B3D8 /* CardData.swift in Sources */,
 				F37E831A1E5698FC0072B3D8 /* AppDelegate.swift in Sources */,
+				706CB78E1E6473D900FEF88A /* MetaData.swift in Sources */,
 				F34F0AD21E5E697A00F94020 /* CollectionViewCell.swift in Sources */,
 				F37E83201E5698FC0072B3D8 /* RootViewController.swift in Sources */,
 				F34F0AD41E5E70E600F94020 /* CollectionViewModel.swift in Sources */,
@@ -329,7 +335,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "35c51722-7b94-4064-98b3-59e569a8c7a8";
 				PROVISIONING_PROFILE_SPECIFIER = Wildcard;
-				SWIFT_OBJC_BRIDGING_HEADER = "API-SampleApp/API-SampleApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 			};
@@ -351,7 +356,6 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "c49e86f4-9e27-49fe-b04a-8ab402d076ec";
 				PROVISIONING_PROFILE_SPECIFIER = PrototypeAdHoc;
-				SWIFT_OBJC_BRIDGING_HEADER = "API-SampleApp/API-SampleApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
 			name = Release;

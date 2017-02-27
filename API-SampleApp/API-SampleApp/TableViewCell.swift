@@ -9,14 +9,16 @@
 import UIKit
 
 class TableViewCell: UITableViewCell {
-    let collectionModel = CollectionViewModel()
+    private let collectionModel = CollectionViewModel()
 
     @IBOutlet weak var suggestionLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
 
-    func setSuggestionData(data: SuggestionData) {
-        self.collectionModel.model = data
-        self.suggestionLabel.text = data.suggestion
+    func prepareForUse(rowData: SuggestionData, clickDelegate: CollectionViewCardClickDelegate) {
+        self.collectionModel.model = rowData
+        self.collectionModel.delegate = clickDelegate
+        
+        self.suggestionLabel.text = rowData.suggestion
         
         self.collectionView.dataSource = collectionModel
         self.collectionView.delegate = collectionModel

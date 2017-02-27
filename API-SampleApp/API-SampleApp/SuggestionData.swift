@@ -8,25 +8,21 @@
 
 import Foundation
 
-class SuggestionData {
+struct SuggestionData {
     var suggestion: String
     var queryFragment: String
     var cards: [CardData]?
     var rank: Int
     var suggestionId: Int
-    var rid: String
-    var ttl: Int
-    var latitude: Float?
-    var longitude: Float?
+    var meta: MetaData
     
-    init(json: [String: AnyObject]) {
-        suggestion = json["suggestion"] as! String
-        queryFragment = json["queryFragment"] as! String
-        rank = json["suggRank"] as! Int
-        suggestionId = json["id"] as! Int
-        rid = json["rid"] as! String
-        ttl = json["ttl"] as! Int
-        latitude = json["lat"] as? Float
-        longitude = json["long"] as? Float
+    init(json: JSON, meta: MetaData, cards: [CardData]) {
+        self.suggestion = json["suggestion"] as? String ?? ""
+        self.queryFragment = json["queryFragment"] as? String ?? ""
+        self.rank = json["suggRank"] as? Int ?? 0
+        self.suggestionId = json["id"] as? Int ?? 0
+
+        self.meta = meta
+        self.cards = cards
     }
 }
