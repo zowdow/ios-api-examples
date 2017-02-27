@@ -32,8 +32,10 @@ class SuggestionLoader {
                 if let data = data, let jsonData = self.decodeAndValidateJSON(data: data) {
                     let resp = self.parseData(data: jsonData)
                     return completion(resp)
-                } else if let error = error {
-                    print("! Error \(error.localizedDescription)")
+                } else if let error = error as? NSError {
+                    if error.domain == NSURLErrorDomain && error.code != NSURLErrorCancelled {
+                        print("! Error polling API \(error.localizedDescription)")
+                    }
                 }
             })
             self.task!.resume()

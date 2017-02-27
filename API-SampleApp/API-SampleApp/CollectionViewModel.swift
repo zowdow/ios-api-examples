@@ -19,7 +19,9 @@ class CollectionViewModel: NSObject {
 
 extension CollectionViewModel: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let model = model, let cards = model.cards else { return 0 }
+        guard let model = model, let cards = model.cards else {
+            return 0
+        }
         return cards.count
     }
     
@@ -38,20 +40,18 @@ extension CollectionViewModel: UICollectionViewDelegate, UICollectionViewDataSou
             return
         }
         let cardData = cards[indexPath.row]
-        if cardData.impressionurl != nil {
-            cardData.trackImpression()
-        }
+        cardData.trackImpression()
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let model = model else { return }
-        guard let cards = model.cards else { return }
+        guard let model = model,
+            let cards = model.cards else {
+                return
+        }
         let cardData = cards[indexPath.row]
-        guard let url = cardData.actionurl else { return }
-        delegate?.onCardClick(sender: self, url: url)
-        
-        if cardData.clickurl != nil {
-            cardData.trackClick()
+        cardData.trackClick()
+        if let url = cardData.actionurl {
+            delegate?.onCardClick(sender: self, url: url)
         }
     }
 }

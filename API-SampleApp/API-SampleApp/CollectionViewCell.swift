@@ -15,12 +15,9 @@ class CollectionViewCell : UICollectionViewCell {
     private func setImage(image: UIImage) {
         if self.imageView == nil {
             self.imageView = UIImageView(frame: self.bounds)
-            guard let imageView = self.imageView else {
-                fatalError()
-            }
-            imageView.layer.borderColor = UIColor.black.cgColor
-            imageView.layer.borderWidth = 1
-            self.contentView.addSubview(imageView)
+            self.imageView!.layer.borderColor = UIColor.black.cgColor
+            self.imageView!.layer.borderWidth = 1
+            self.contentView.addSubview(self.imageView!)
         }
 
         self.imageView!.image = image
@@ -36,8 +33,10 @@ class CollectionViewCell : UICollectionViewCell {
                 DispatchQueue.main.async {
                     self.setImage(image: image)
                 }
-            } else if let error = error {
-                print("!!! \(error.localizedDescription)")
+            } else if let error = error as? NSError {
+                if error.domain == NSURLErrorDomain && error.code != NSURLErrorCancelled {
+                    print("! Error fetching image \(error.localizedDescription)")
+                }
             }
         })
         self.task!.resume()

@@ -26,7 +26,7 @@ struct CardData {
         width = json["x3_w"] as! Float
         card_format = json["card_format"] as! String
         cardRank = json["cardRank"] as! Int
-        if let actions = json["actions"] as? [[String: AnyObject]] {
+        if let actions = json["actions"] as? [JSON] {
             actionurl = URL(string: actions[0]["action_target"] as! String)
         }
         clickurl = URL(string: json["card_click_url"] as! String)
@@ -34,10 +34,16 @@ struct CardData {
     }
     
     func trackClick() {
-        URLSession.shared.dataTask(with: clickurl!)
+        guard let clickurl = self.clickurl else {
+            return
+        }
+        URLSession.shared.dataTask(with: clickurl).resume()
     }
     
     func trackImpression() {
-        URLSession.shared.dataTask(with: impressionurl!)
+        guard let impressionurl = self.impressionurl else {
+            return
+        }
+        URLSession.shared.dataTask(with: impressionurl).resume()
     }
 }

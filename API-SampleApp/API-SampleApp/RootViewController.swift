@@ -15,6 +15,7 @@ class RootViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var loader: SuggestionLoader?
     var model: [SuggestionData]?
@@ -39,9 +40,11 @@ class RootViewController: UIViewController {
     }
     
     func doSearch(for text: String) {
+        activityIndicator.startAnimating()
         loader?.search(for: text, completion: { (resp) in
             self.model = resp
             DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
                 self.tableView.reloadData()
             }
         })
