@@ -39,9 +39,9 @@ class APIParameters {
     var long: CGFloat = 0.0
     var location_accuracy: CGFloat = 0.0
     let locale: String = NSLocale.current.identifier
-    let timezone: String = NSTimeZone.local.abbreviation()!
-    let app_ver: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
-    let app_build: String = Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as! String
+    let timezone: String = NSTimeZone.local.abbreviation() ?? "UTC"
+    let app_ver: String = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? ""
+    let app_build: String = Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String ?? ""
     let screen_scale: CGFloat = UIScreen.main.scale
     let system_ver: String = UIDevice.current.systemVersion
     var device_model: String {

@@ -25,7 +25,7 @@ class SuggestionLoader {
             
             var params = APIParameters.sharedInstance.params
             params["q"] = text
-            guard let requestUrl = request(parameters: params as [String: AnyObject]) else {
+            guard let requestUrl = request(parameters: params.urlEncodedString()) else {
                 return
             }
             self.task = URLSession.shared.dataTask(with: requestUrl, completionHandler: { (data, response, error) in
@@ -42,10 +42,10 @@ class SuggestionLoader {
         }
     }
     
-    func request(parameters: [String: AnyObject]) -> URL? {
+    func request(parameters: String) -> URL? {
         let baseURL = URL(string: zowdowAPIBaseURLUnified)
         if var fullURL = URLComponents(url: baseURL!, resolvingAgainstBaseURL: true) {
-            fullURL.query = parameters.urlEncodedString()
+            fullURL.query = parameters
             return fullURL.url
         } else {
             return nil
@@ -56,7 +56,7 @@ class SuggestionLoader {
         guard let parsedData = (try? JSONSerialization.jsonObject(with: data, options: [])) as? JSON else {
             return nil
         }
-        if (parsedData.keys.contains(zowdowAPIResponseRecordsKey) && parsedData.keys.contains(zowdowAPIResponseMetaKey)) {
+        if parsedData.keys.contains(zowdowAPIResponseRecordsKey) && parsedData.keys.contains(zowdowAPIResponseMetaKey) {
             return parsedData
         }
         return nil
@@ -96,10 +96,8 @@ class SuggestionLoader {
     }
     
     func parseCards(cardsData: [JSON]) -> [CardData] {
-        var cards: [CardData] = []
-        for card in cardsData {
-            cards.append(CardData(json: card))
+        return cardsData.map {(card: JSON)->CardData in
+            return CardData(json: card)
         }
-        return cards
     }
 }

@@ -40,9 +40,12 @@ class RootViewController: UIViewController {
     }
     
     func doSearch(for text: String) {
+        self.model = []
+        self.tableView.reloadData()
         activityIndicator.startAnimating()
-        loader?.search(for: text, completion: { (resp) in
-            self.model = resp
+        
+        loader?.search(for: text, completion: { response in
+            self.model = response
             DispatchQueue.main.async {
                 self.activityIndicator.stopAnimating()
                 self.tableView.reloadData()
