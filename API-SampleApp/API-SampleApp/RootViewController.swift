@@ -52,23 +52,28 @@ class RootViewController: UIViewController {
         var invisibleIds: [String] = []
         
         let visibleRows = Int(self.tableView.frame.height / self.rowHeight)
-        let visibleColumns = Int(ceil(self.tableView.frame.width / self.cellWidth))
         
         for (rowNum, suggestion) in suggesions.enumerated() {
             if let cards = suggestion.cards {
-                for (columnNum, card) in cards.enumerated() {
-                    allCards.append(card)
-                    
-                    if (columnNum < visibleColumns) && (rowNum < visibleRows) {
-                        visibleIds.append(card.cardID)
-                    } else {
+                if rowNum < visibleRows {
+                    let cell = self.tableView.cellForRow(at: IndexPath.init(row: rowNum, section: 0)) as! TableViewCell
+                    for (columnNum, card) in cards.enumerated() {
+                        allCards.append(card)
+                        if (cell.visibleCardsIndex().contains(columnNum)) {
+                            visibleIds.append(card.cardID)
+                        } else {
+                            invisibleIds.append(card.cardID)
+                        }
+                    }
+                } else {
+                    for card in cards {
+                        allCards.append(card)
                         invisibleIds.append(card.cardID)
                     }
                 }
             }
         }
         
-        print("\(allCards.count) - \(visibleIds.count) - \(invisibleIds.count)")
         self.impressionsTracker.setNewCardsData(cards: allCards)
         visibleIds.forEach{self.impressionsTracker.cardShown(cardId: $0)}
         invisibleIds.forEach{self.impressionsTracker.cardHidden(cardId: $0)}
@@ -102,6 +107,7 @@ extension RootViewController: UITableViewDataSource {
             return cell
         }
         cell.prepareForUse(rowData: model[indexPath.row], clickDelegate: self)
+        cell.delegate = self
         return cell
     }
 }
@@ -109,10 +115,6 @@ extension RootViewController: UITableViewDataSource {
 extension RootViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return rowHeight
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        print(scrollView.contentOffset)
     }
 }
 
@@ -136,6 +138,21 @@ extension RootViewController: CollectionViewCardClickDelegate {
         } else {
             // Fallback on earlier versions
             UIApplication.shared.openURL(url)
+        }
+    }
+}
+
+extension RootViewController: CollectionViewDidScrollDelegate {
+    func onCollectionViewScroll(sender: TableViewCell) {
+        if let cards = sender.cards {
+            for index in 0..<cards.count {
+                if sender.visibleCardsIndex().contains(index) {
+                    self.impressionsTracker.cardShown(cardId: cards[index].cardID)
+                }
+                else {
+                    self.impressionsTracker.cardHidden(cardId: cards[index].cardID)
+                }
+            }
         }
     }
 }
