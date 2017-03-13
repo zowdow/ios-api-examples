@@ -23,12 +23,14 @@ class CardImpressionInfo {
         if self.isTracked {
             return
         }
-        self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(doTrack), userInfo: nil, repeats: false)
+        if self.timer == nil {
+            self.timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(doTrack), userInfo: nil, repeats: false)
+        }
     }
     
     func cardHidden() {
         if let timer = self.timer, timer.isValid {
-            timer.invalidate()
+            self.timer!.invalidate()
             self.timer = nil
         }
     }
