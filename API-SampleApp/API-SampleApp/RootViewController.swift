@@ -11,7 +11,11 @@ import CoreLocation
 import SafariServices
 
 class RootViewController: UIViewController {
+    let rowHeight: CGFloat = 80
+    let cellWidth: CGFloat = 160
+    
     let locationManager = CLLocationManager()
+    let impressionsTracker = CardImpressionsTracker()
     
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var searchBar: UISearchBar!
@@ -39,6 +43,37 @@ class RootViewController: UIViewController {
         }
     }
     
+    func trackNewItems(suggestions: [SuggestionData]?) {
+        guard let suggesions = suggestions else {
+            return
+        }
+        var allCards: [CardData] = []
+        var visibleIds: [String] = []
+        var invisibleIds: [String] = []
+        
+        let visibleRows = Int(self.tableView.frame.height / self.rowHeight)
+        let visibleColumns = Int(ceil(self.tableView.frame.width / self.cellWidth))
+        
+        for (rowNum, suggestion) in suggesions.enumerated() {
+            if let cards = suggestion.cards {
+                for (columnNum, card) in cards.enumerated() {
+                    allCards.append(card)
+                    
+                    if (columnNum < visibleColumns) && (rowNum < visibleRows) {
+                        visibleIds.append(card.cardID)
+                    } else {
+                        invisibleIds.append(card.cardID)
+                    }
+                }
+            }
+        }
+        
+        print("\(allCards.count) - \(visibleIds.count) - \(invisibleIds.count)")
+        self.impressionsTracker.setNewCardsData(cards: allCards)
+        visibleIds.forEach{self.impressionsTracker.cardShown(cardId: $0)}
+        invisibleIds.forEach{self.impressionsTracker.cardHidden(cardId: $0)}
+    }
+    
     func doSearch(for text: String) {
         self.model = []
         self.tableView.reloadData()
@@ -49,6 +84,7 @@ class RootViewController: UIViewController {
             DispatchQueue.main.async {
                 self.activityIndicator.stopAnimating()
                 self.tableView.reloadData()
+                self.trackNewItems(suggestions: response)
             }
         })
     }
@@ -72,7 +108,11 @@ extension RootViewController: UITableViewDataSource {
 
 extension RootViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return CGFloat(80)
+        return rowHeight
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        print(scrollView.contentOffset)
     }
 }
 
