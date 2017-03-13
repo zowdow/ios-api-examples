@@ -44,15 +44,20 @@ class APIParameters {
     let app_build: String = Bundle.main.object(forInfoDictionaryKey: kCFBundleVersionKey as String) as? String ?? ""
     let screen_scale: CGFloat = UIScreen.main.scale
     let system_ver: String = UIDevice.current.systemVersion
-    var device_model: String {
+    static var device_model: String {
         var sysinfo = utsname()
         uname(&sysinfo)
         return String(bytes: Data(bytes: &sysinfo.machine, count: Int(_SYS_NAMELEN)), encoding: .ascii)!.trimmingCharacters(in: .controlCharacters)
     }
     
+    static var user_agent: String {
+        let webView = UIWebView(frame: .zero)
+        return webView.stringByEvaluatingJavaScript(from: "navigator.userAgent") ?? ""
+    }
+    
     func getNetworkType() -> String {
         let reachability:Reachability = Reachability.init()!
-        do{
+        do {
             try reachability.startNotifier()
             let status = reachability.currentReachabilityStatus
             if(status == Reachability.NetworkStatus.notReachable) {
@@ -90,12 +95,13 @@ class APIParameters {
             "app_build" : app_build,
             "screen_scale" : screen_scale,
             "system_ver" : system_ver,
-            "device_model" : device_model,
+            "device_model" : APIParameters.device_model,
             "network" : getNetworkType(),
             "card_format" : "inline",
             "s_limit" : 10,
             "c_limit" : 10,
-            "tracking" : 1
+            "tracking" : 1,
+            "ua": APIParameters.user_agent
         ]
     }
     
