@@ -52,22 +52,15 @@ class RootViewController: UIViewController {
         var invisibleIds: [String] = []
         
         let visibleRows = Int(self.tableView.frame.height / self.rowHeight)
+        let visibleColumns = Int(ceil(self.tableView.frame.width / self.cellWidth))
         
         for (rowNum, suggestion) in suggesions.enumerated() {
             if let cards = suggestion.cards {
-                if rowNum < visibleRows {
-                    let cell = self.tableView.cellForRow(at: IndexPath.init(row: rowNum, section: 0)) as! TableViewCell
-                    for (columnNum, card) in cards.enumerated() {
-                        allCards.append(card)
-                        if (cell.visibleCardsIndex().contains(columnNum)) {
-                            visibleIds.append(card.cardID)
-                        } else {
-                            invisibleIds.append(card.cardID)
-                        }
-                    }
-                } else {
-                    for card in cards {
-                        allCards.append(card)
+                for (columnNum, card) in cards.enumerated() {
+                    allCards.append(card)
+                    if columnNum < visibleColumns && rowNum < visibleRows {
+                        visibleIds.append(card.cardID)
+                    } else {
                         invisibleIds.append(card.cardID)
                     }
                 }
@@ -145,14 +138,24 @@ extension RootViewController: CollectionViewCardClickDelegate {
 extension RootViewController: CollectionViewDidScrollDelegate {
     func onCollectionViewScroll(sender: TableViewCell) {
         if let cards = sender.cards {
-            for index in 0..<cards.count {
-                if sender.visibleCardsIndex().contains(index) {
-                    self.impressionsTracker.cardShown(cardId: cards[index].cardID)
-                }
-                else {
-                    self.impressionsTracker.cardHidden(cardId: cards[index].cardID)
+            let visible = sender.visibleCardsIndex
+            for card in cards {
+                if visible.contains(card.cardID) {
+                    self.impressionsTracker.cardShown(cardId: card.cardID)
+                } else {
+                    self.impressionsTracker.cardHidden(cardId: card.cardID)
                 }
             }
         }
+//        if let cards = sender.cards {
+//            for index in 0..<cards.count {
+//                if sender.visibleCardsIndex().contains(index) {
+//                    self.impressionsTracker.cardShown(cardId: cards[index].cardID)
+//                }
+//                else {
+//                    self.impressionsTracker.cardHidden(cardId: cards[index].cardID)
+//                }
+//            }
+//        }
     }
 }

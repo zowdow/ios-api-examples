@@ -14,6 +14,8 @@ protocol CollectionViewDidScrollDelegate {
 
 class TableViewCell: UITableViewCell {
     private let collectionModel = CollectionViewModel()
+    fileprivate var visibleCards = Set<String>()
+
     var delegate: CollectionViewDidScrollDelegate?
     var cards: [CardData]?
 
@@ -33,23 +35,42 @@ class TableViewCell: UITableViewCell {
         self.collectionView.reloadData()
     }
     
-    func visibleCardsIndex() -> [Int] {
-        var index: [Int] = []
-        for cell in self.collectionView.visibleCells {
-            if visible(midX: cell.frame.midX) {
-                index.append((self.collectionView.indexPath(for: cell)?.row)!)
+    var visibleCardsIndex: Set<String> {
+        // if we don't have items in self.visibleCards, then user didn't scroll cell, so we can determine necessary data by geometric calculations
+        if self.visibleCards.count == 0 {
+            let firstItem = IndexPath(row: 0, section: 0)
+            if let cellAttributes = self.collectionView.layoutAttributesForItem(at: firstItem), let cards = self.cards {
+                let cellSize = cellAttributes.size
+                let visibleCardsCount = Int(ceil(self.frame.width / cellSize.width))
+                for index in 0..<min(visibleCardsCount, cards.count) {
+                    self.visibleCards.insert(cards[index].cardID)
+                }
+                return self.visibleCards
+            } else {
+                return Set<String>()
             }
+        } else {
+            return self.visibleCards
         }
-        return index
     }
     
-    private func visible(midX: CGFloat) -> Bool {
+    fileprivate func visible(midX: CGFloat) -> Bool {
         return midX >= self.collectionView.contentOffset.x && midX <= self.collectionView.contentOffset.x + self.collectionView.frame.width
     }
 }
 
 extension TableViewCell: UICollectionViewDelegate {
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        guard let cards = self.cards else {
+            return
+        }
+        
+        self.visibleCards.removeAll()
+        for cell in self.collectionView.visibleCells {
+            if visible(midX: cell.frame.midX), let indexPath = self.collectionView.indexPath(for: cell) {
+                self.visibleCards.insert(cards[indexPath.row].cardID)
+            }
+        }
         delegate?.onCollectionViewScroll(sender: self)
     }
 }
