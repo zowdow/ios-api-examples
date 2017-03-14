@@ -21,6 +21,10 @@ class RootViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    let collectionViewSpace: CGFloat = 8
+    let collectionViewCellSpace: CGFloat = 10.0
+    var collectionViewWidth: CGFloat = 0
+    
     var loader: SuggestionLoader?
     var model: [SuggestionData]?
     
@@ -41,6 +45,8 @@ class RootViewController: UIViewController {
             locationManager.desiredAccuracy = kCLLocationAccuracyBest
             locationManager.startUpdatingLocation()
         }
+        
+        collectionViewWidth = tableView.frame.width - 2 * collectionViewSpace
     }
     
     func trackNewItems(suggestions: [SuggestionData]?) {
@@ -52,7 +58,10 @@ class RootViewController: UIViewController {
         var invisibleIds: [String] = []
         
         let visibleRows = Int(self.tableView.frame.height / self.rowHeight)
-        let visibleColumns = Int(ceil(self.tableView.frame.width / self.cellWidth))
+        var visibleColumns = Int(floor(self.tableView.frame.width / self.cellWidth))
+        if (self.collectionViewWidth - CGFloat(visibleColumns) * (self.cellWidth + self.collectionViewCellSpace) >= self.cellWidth/2) {
+            visibleColumns += 1;
+        }
         
         for (rowNum, suggestion) in suggesions.enumerated() {
             if let cards = suggestion.cards {
