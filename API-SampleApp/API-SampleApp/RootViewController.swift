@@ -12,6 +12,7 @@ import SafariServices
 
 class RootViewController: UIViewController {
     let rowHeight: CGFloat = 80
+    let rowCaptionHeight: CGFloat = 20
     let collectionViewCellWidth: CGFloat = 160
     let collectionViewSpace: CGFloat = 8
     let collectionViewCellSpace: CGFloat = 10.0
@@ -67,7 +68,10 @@ class RootViewController: UIViewController {
         var visibleIds: [String] = []
         var invisibleIds: [String] = []
         
-        let visibleRows = Int(self.tableView.frame.height / self.rowHeight)
+        // if there is more then 50% of collection view visible, we need to count this row as visible
+        let addendum = (self.tableView.frame.height.truncatingRemainder(dividingBy: self.rowHeight)) > (self.rowHeight - self.rowCaptionHeight) / 2 ? 1 : 0
+        let visibleRows = Int(floor(self.tableView.frame.height / self.rowHeight)) + addendum
+        
         let visibleColumns = Int(round(self.collectionViewWidth / (self.collectionViewCellWidth + self.collectionViewCellSpace)))
         
         for (rowNum, suggestion) in suggesions.enumerated() {
