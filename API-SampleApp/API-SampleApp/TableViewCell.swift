@@ -35,7 +35,7 @@ class TableViewCell: UITableViewCell {
         self.collectionView.reloadData()
     }
     
-    var visibleCardsIndex: Set<String> {
+    var visibleCardIds: Set<String> {
         // if we don't have items in self.visibleCards, then user didn't scroll cell, so we can determine necessary data by geometric calculations
         if self.visibleCards.count == 0 {
             let firstItem = IndexPath(row: 0, section: 0)

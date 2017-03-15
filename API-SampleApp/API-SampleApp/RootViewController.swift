@@ -49,6 +49,16 @@ class RootViewController: UIViewController {
         collectionViewWidth = tableView.frame.width - 2 * collectionViewSpace
     }
     
+    func trackSuggestion(data: [CardData], visibleCards: Set<String>) {
+        for card in data {
+            if visibleCards.contains(card.cardID) {
+                self.impressionsTracker.cardShown(cardId: card.cardID)
+            } else {
+                self.impressionsTracker.cardHidden(cardId: card.cardID)
+            }
+        }
+    }
+    
     func trackNewItems(suggestions: [SuggestionData]?) {
         guard let suggesions = suggestions else {
             return
@@ -115,8 +125,26 @@ extension RootViewController: UITableViewDataSource {
 }
 
 extension RootViewController: UITableViewDelegate {
+    private func visible(midY: CGFloat) -> Bool {
+        return midY >= self.tableView.contentOffset.x && midY <= self.tableView.contentOffset.x + self.tableView.frame.width
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return rowHeight
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        for row in self.tableView.visibleCells {
+            if let cell = row as? TableViewCell, let cards = cell.cards {
+                let visibleItems: Set<String>
+                if self.visible(midY: cell.frame.midY) {
+                    visibleItems = cell.visibleCardIds
+                } else {
+                    visibleItems = Set<String>()
+                }
+                self.trackSuggestion(data: cards, visibleCards: visibleItems)
+            }
+        }
     }
 }
 
@@ -147,24 +175,7 @@ extension RootViewController: CollectionViewCardClickDelegate {
 extension RootViewController: CollectionViewDidScrollDelegate {
     func onCollectionViewScroll(sender: TableViewCell) {
         if let cards = sender.cards {
-            let visible = sender.visibleCardsIndex
-            for card in cards {
-                if visible.contains(card.cardID) {
-                    self.impressionsTracker.cardShown(cardId: card.cardID)
-                } else {
-                    self.impressionsTracker.cardHidden(cardId: card.cardID)
-                }
-            }
+            self.trackSuggestion(data: cards, visibleCards: sender.visibleCardIds)
         }
-//        if let cards = sender.cards {
-//            for index in 0..<cards.count {
-//                if sender.visibleCardsIndex().contains(index) {
-//                    self.impressionsTracker.cardShown(cardId: cards[index].cardID)
-//                }
-//                else {
-//                    self.impressionsTracker.cardHidden(cardId: cards[index].cardID)
-//                }
-//            }
-//        }
     }
 }
