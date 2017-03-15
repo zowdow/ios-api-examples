@@ -12,7 +12,10 @@ import SafariServices
 
 class RootViewController: UIViewController {
     let rowHeight: CGFloat = 80
-    let cellWidth: CGFloat = 160
+    let collectionViewCellWidth: CGFloat = 160
+    let collectionViewSpace: CGFloat = 8
+    let collectionViewCellSpace: CGFloat = 10.0
+    var collectionViewWidth: CGFloat = 0
     
     let locationManager = CLLocationManager()
     let impressionsTracker = CardImpressionsTracker()
@@ -21,9 +24,6 @@ class RootViewController: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-    let collectionViewSpace: CGFloat = 8
-    let collectionViewCellSpace: CGFloat = 10.0
-    var collectionViewWidth: CGFloat = 0
     
     var loader: SuggestionLoader?
     var model: [SuggestionData]?
@@ -68,10 +68,7 @@ class RootViewController: UIViewController {
         var invisibleIds: [String] = []
         
         let visibleRows = Int(self.tableView.frame.height / self.rowHeight)
-        var visibleColumns = Int(floor(self.tableView.frame.width / self.cellWidth))
-        if (self.collectionViewWidth - CGFloat(visibleColumns) * (self.cellWidth + self.collectionViewCellSpace) >= self.cellWidth/2) {
-            visibleColumns += 1;
-        }
+        let visibleColumns = Int(round(self.collectionViewWidth / (self.collectionViewCellWidth + self.collectionViewCellSpace)))
         
         for (rowNum, suggestion) in suggesions.enumerated() {
             if let cards = suggestion.cards {
