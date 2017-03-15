@@ -118,8 +118,7 @@ extension RootViewController: UITableViewDataSource {
         guard let model = model else {
             return cell
         }
-        cell.prepareForUse(rowData: model[indexPath.row], clickDelegate: self)
-        cell.delegate = self
+        cell.prepareForUse(rowData: model[indexPath.row], delegate: self)
         return cell
     }
 }
@@ -160,8 +159,8 @@ extension RootViewController: CLLocationManagerDelegate {
     }
 }
 
-extension RootViewController: CollectionViewCardClickDelegate {
-    func onCardClick(sender: CollectionViewModel, url: URL) {
+extension RootViewController: CardCollectionViewDelegate {
+    func onCardClick(url: URL) {
         if #available(iOS 9.0, *) {
             let vc = SFSafariViewController(url: url)
             self.present(vc, animated: true, completion: nil)
@@ -170,10 +169,8 @@ extension RootViewController: CollectionViewCardClickDelegate {
             UIApplication.shared.openURL(url)
         }
     }
-}
 
-extension RootViewController: CollectionViewDidScrollDelegate {
-    func onCollectionViewScroll(sender: TableViewCell) {
+    func onCollectionViewScroll(sender: TableViewCell, visibleCardIds: Set<String>) {
         if let cards = sender.cards {
             self.trackSuggestion(data: cards, visibleCards: sender.visibleCardIds)
         }

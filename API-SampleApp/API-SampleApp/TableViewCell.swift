@@ -8,29 +8,29 @@
 
 import UIKit
 
-protocol CollectionViewDidScrollDelegate {
-    func onCollectionViewScroll(sender: TableViewCell)
+protocol CardCollectionViewDelegate {
+    func onCollectionViewScroll(sender: TableViewCell, visibleCardIds: Set<String>)
+    func onCardClick(url: URL)
 }
 
 class TableViewCell: UITableViewCell {
     private let collectionModel = CollectionViewModel()
     fileprivate var visibleCards = Set<String>()
-
-    var delegate: CollectionViewDidScrollDelegate?
+    fileprivate var delegate: CardCollectionViewDelegate?
+    
     var cards: [CardData]?
 
     @IBOutlet weak var suggestionLabel: UILabel!
     @IBOutlet weak var collectionView: UICollectionView!
 
-    func prepareForUse(rowData: SuggestionData, clickDelegate: CollectionViewCardClickDelegate) {
-        self.collectionModel.model = rowData
-        self.collectionModel.delegate = clickDelegate
+    func prepareForUse(rowData: SuggestionData, delegate: CardCollectionViewDelegate) {
+        self.delegate = delegate
         self.cards = rowData.cards
+        self.collectionModel.model = self.cards
         
         self.suggestionLabel.text = rowData.suggestion
         
         self.collectionView.dataSource = collectionModel
-        self.collectionView.delegate = collectionModel
         self.collectionView.delegate = self
         self.collectionView.reloadData()
     }
@@ -71,6 +71,17 @@ extension TableViewCell: UICollectionViewDelegate {
                 self.visibleCards.insert(cards[indexPath.row].cardID)
             }
         }
-        delegate?.onCollectionViewScroll(sender: self)
+        delegate?.onCollectionViewScroll(sender: self, visibleCardIds: self.visibleCards)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let cardData = self.cards?[indexPath.row] else {
+            return
+        }
+        
+        cardData.trackClick()
+        if let url = cardData.actionurl {
+            delegate?.onCardClick(url: url)
+        }
     }
 }
