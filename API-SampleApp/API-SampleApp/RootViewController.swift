@@ -64,32 +64,30 @@ class RootViewController: UIViewController {
         guard let suggesions = suggestions else {
             return
         }
-        var allCards: [CardData] = []
-        var visibleIds: [String] = []
-        var invisibleIds: [String] = []
+        var visibility: [CardData: Bool] = [:]
         
         // if there is more then 50% of collection view visible, we need to count this row as visible
-        let addendum = (self.tableView.frame.height.truncatingRemainder(dividingBy: self.rowHeight)) > (self.rowHeight - self.rowCaptionHeight) / 2 ? 1 : 0
-        let visibleRows = Int(floor(self.tableView.frame.height / self.rowHeight)) + addendum
+        let additionalRow = (self.tableView.frame.height.truncatingRemainder(dividingBy: self.rowHeight)) > (self.rowHeight - self.rowCaptionHeight) / 2 ? 1 : 0
+        let visibleRows = Int(floor(self.tableView.frame.height / self.rowHeight)) + additionalRow
         
         let visibleColumns = Int(round(self.collectionViewWidth / (self.collectionViewCellWidth + self.collectionViewCellSpace)))
         
         for (rowNum, suggestion) in suggesions.enumerated() {
             if let cards = suggestion.cards {
                 for (columnNum, card) in cards.enumerated() {
-                    allCards.append(card)
-                    if columnNum < visibleColumns && rowNum < visibleRows {
-                        visibleIds.append(card.cardID)
-                    } else {
-                        invisibleIds.append(card.cardID)
-                    }
+                    visibility[card] = columnNum < visibleColumns && rowNum < visibleRows
                 }
             }
         }
         
-        self.impressionsTracker.setNewCardsData(cards: allCards)
-        visibleIds.forEach{self.impressionsTracker.cardShown(cardId: $0)}
-        invisibleIds.forEach{self.impressionsTracker.cardHidden(cardId: $0)}
+        self.impressionsTracker.setNewCardsData(cards: Array(visibility.keys))
+        for (card, visible) in visibility {
+            if visible {
+                self.impressionsTracker.cardShown(cardId: card.cardID)
+            } else {
+                self.impressionsTracker.cardHidden(cardId: card.cardID)
+            }
+        }
     }
     
     func doSearch(for text: String) {
