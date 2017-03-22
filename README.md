@@ -11,7 +11,7 @@ We also offer access through a direct API as documented in the example here.
 The application developer will require an app-id key in order to integrated and test. You can request an app-id key by sending an email to dev@zowdow.com.
 
 # Impressions tracking
-If you are using this example in your production application, you should take measures to correctly track cards impressions. We are using IAB standard for impressions tracking, introducing following rule: impression should be tracked, if at least 50% card is shown for at least 1 second. Also, timer should not invalidate if card persist between 2 consistent requests. We've created a class to simplify tracking work in you application.
+If you are using this example in your production application, you should take measures to correctly track cards impressions. We are using MRC standard for impressions tracking, introducing following rule: impression should be tracked, if at least 50% card is shown for at least 1 second. Also, timer should not invalidate if card persist between 2 consistent requests. We've created a class to simplify tracking work in you application.
 
 Here is class diagram of impressions tracking classes.
 
