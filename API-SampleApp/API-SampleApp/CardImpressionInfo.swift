@@ -19,6 +19,8 @@ class CardImpressionInfo {
         self.trackURL = trackURL
     }
     
+    
+    /// Start timer for 1 second delay
     func cardShown() {
         if self.isTracked {
             return
@@ -28,6 +30,8 @@ class CardImpressionInfo {
         }
     }
     
+    
+    /// Stop trasking timer
     func cardHidden() {
         if let timer = self.timer, timer.isValid {
             self.timer!.invalidate()
@@ -35,6 +39,8 @@ class CardImpressionInfo {
         }
     }
     
+    
+    /// Perform actual tracking
     @objc func doTrack() {
         if self.isTracked {
             return

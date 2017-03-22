@@ -65,12 +65,14 @@ extension TableViewCell: UICollectionViewDelegate {
             return
         }
         
+        // if collection was scrolled, we need to recalculate visible cards
         self.visibleCards.removeAll()
         for cell in self.collectionView.visibleCells {
             if visible(midX: cell.frame.midX), let indexPath = self.collectionView.indexPath(for: cell) {
                 self.visibleCards.insert(cards[indexPath.row].cardID)
             }
         }
+        // and trigger delegate's callback
         delegate?.onCollectionViewScroll(sender: self, visibleCardIds: self.visibleCards)
     }
     
