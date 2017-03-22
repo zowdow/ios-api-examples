@@ -18,28 +18,30 @@ class SuggestionLoader {
     let zowdowAPIResponseMetaKey = "_meta"
     
     func search(for text: String, completion: @escaping (_ response: [SuggestionData]?) -> Void) {
-        if (text.characters.count > 0) {
-            if let activeTask = self.task {
-                activeTask.cancel()
-            }
-            
-            var params = APIParameters.sharedInstance.params
-            params["q"] = text
-            guard let requestUrl = request(parameters: params.urlEncodedString()) else {
-                return
-            }
-            self.task = URLSession.shared.dataTask(with: requestUrl, completionHandler: { (data, response, error) in
-                if let data = data, let jsonData = self.decodeAndValidateJSON(data: data) {
-                    let resp = self.parseData(data: jsonData)
-                    return completion(resp)
-                } else if let error = error as? NSError {
-                    if error.domain == NSURLErrorDomain && error.code != NSURLErrorCancelled {
-                        print("! Error polling API \(error.localizedDescription)")
-                    }
-                }
-            })
-            self.task!.resume()
+        if let activeTask = self.task {
+            activeTask.cancel()
         }
+        guard text.characters.count != 0 else {
+            completion([])
+            return
+        }
+        
+        var params = APIParameters.sharedInstance.params
+        params["q"] = text
+        guard let requestUrl = request(parameters: params.urlEncodedString()) else {
+            return
+        }
+        self.task = URLSession.shared.dataTask(with: requestUrl, completionHandler: { (data, response, error) in
+            if let data = data, let jsonData = self.decodeAndValidateJSON(data: data) {
+                let resp = self.parseData(data: jsonData)
+                return completion(resp)
+            } else if let error = error as? NSError {
+                if error.domain == NSURLErrorDomain && error.code != NSURLErrorCancelled {
+                    print("! Error polling API \(error.localizedDescription)")
+                }
+            }
+        })
+        self.task!.resume()
     }
     
     func request(parameters: String) -> URL? {

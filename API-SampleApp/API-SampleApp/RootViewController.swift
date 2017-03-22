@@ -105,8 +105,6 @@ class RootViewController: UIViewController {
     }
     
     func doSearch(for text: String) {
-        self.model = []
-        self.tableView.reloadData()
         activityIndicator.startAnimating()
         
         loader?.search(for: text, completion: { response in
