@@ -8,18 +8,11 @@
 
 import UIKit
 
-protocol CollectionViewCardClickDelegate {
-    func onCardClick(sender: CollectionViewModel, url: URL)
-}
+class CollectionViewModel: NSObject, UICollectionViewDataSource {
+    var model: [CardData]?
 
-class CollectionViewModel: NSObject {
-    var model: SuggestionData?
-    var delegate: CollectionViewCardClickDelegate?
-}
-
-extension CollectionViewModel: UICollectionViewDelegate, UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        guard let model = model, let cards = model.cards else {
+        guard let cards = self.model else {
             return 0
         }
         return cards.count
@@ -27,31 +20,11 @@ extension CollectionViewModel: UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! CollectionViewCell
-        guard let model = model, let cards = model.cards else {
+        guard let cards = self.model else {
             return cell
         }
         let cardData = cards[indexPath.row]
         cell.loadImage(url: cardData.url)
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
-        guard let model = model, let cards = model.cards else {
-            return
-        }
-        let cardData = cards[indexPath.row]
-        cardData.trackImpression()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let model = model,
-            let cards = model.cards else {
-                return
-        }
-        let cardData = cards[indexPath.row]
-        cardData.trackClick()
-        if let url = cardData.actionurl {
-            delegate?.onCardClick(sender: self, url: url)
-        }
     }
 }

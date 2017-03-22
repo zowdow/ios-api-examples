@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct CardData {
+struct CardData: Hashable {
     var cardID: String
     var url: URL
     var height: Float
@@ -18,6 +18,14 @@ struct CardData {
     var actionurl: URL?
     var clickurl: URL?
     var impressionurl: URL?
+    
+    var hashValue: Int {
+        return self.cardID.hashValue ^ self.url.hashValue ^ (self.impressionurl ?? URL(string: "")!).hashValue
+    }
+    
+    static func == (lhs: CardData, rhs: CardData) -> Bool {
+        return lhs.cardID == rhs.cardID && lhs.url == rhs.url && lhs.impressionurl == rhs.impressionurl
+    }
     
     init(json: JSON) {
         cardID = json["id"] as! String

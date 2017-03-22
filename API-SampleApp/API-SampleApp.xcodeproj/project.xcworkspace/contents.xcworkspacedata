@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:Prototype.xcodeproj">
+      location = "self:/Users/cleg/Projects/DirectAPIExample/API-SampleApp/API-SampleApp.xcodeproj">
    </FileRef>
 </Workspace>

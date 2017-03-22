@@ -101,7 +101,7 @@ class APIParameters {
             "s_limit" : 10,
             "c_limit" : 10,
             "tracking" : 1,
-            "ua": APIParameters.user_agent
+            "zua": APIParameters.user_agent
         ]
     }
     

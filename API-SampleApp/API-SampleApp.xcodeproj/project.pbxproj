@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		706CB78E1E6473D900FEF88A /* MetaData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706CB78D1E6473D900FEF88A /* MetaData.swift */; };
+		70ECFC181E76BCD4003B43CA /* CardImpressionInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70ECFC171E76BCD4003B43CA /* CardImpressionInfo.swift */; };
+		70ECFC1A1E76C292003B43CA /* CardImpressionsTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70ECFC191E76C292003B43CA /* CardImpressionsTracker.swift */; };
 		F34F0AD21E5E697A00F94020 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34F0AD11E5E697A00F94020 /* CollectionViewCell.swift */; };
 		F34F0AD41E5E70E600F94020 /* CollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F34F0AD31E5E70E600F94020 /* CollectionViewModel.swift */; };
 		F37E83191E5698FC0072B3D8 /* APIParameters.swift in Sources */ = {isa = PBXBuildFile; fileRef = F37E830B1E5698FC0072B3D8 /* APIParameters.swift */; };
@@ -27,6 +29,8 @@
 /* Begin PBXFileReference section */
 		706CB78D1E6473D900FEF88A /* MetaData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MetaData.swift; path = "API-SampleApp/MetaData.swift"; sourceTree = SOURCE_ROOT; };
 		7099C12A1DD4ABB200AC49A2 /* API-SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "API-SampleApp.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		70ECFC171E76BCD4003B43CA /* CardImpressionInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardImpressionInfo.swift; path = "API-SampleApp/CardImpressionInfo.swift"; sourceTree = SOURCE_ROOT; };
+		70ECFC191E76C292003B43CA /* CardImpressionsTracker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CardImpressionsTracker.swift; path = "API-SampleApp/CardImpressionsTracker.swift"; sourceTree = SOURCE_ROOT; };
 		F34F0AD11E5E697A00F94020 /* CollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewCell.swift; path = "API-SampleApp/CollectionViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		F34F0AD31E5E70E600F94020 /* CollectionViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewModel.swift; path = "API-SampleApp/CollectionViewModel.swift"; sourceTree = SOURCE_ROOT; };
 		F37E830B1E5698FC0072B3D8 /* APIParameters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = APIParameters.swift; path = "API-SampleApp/APIParameters.swift"; sourceTree = SOURCE_ROOT; };
@@ -86,15 +90,13 @@
 			isa = PBXGroup;
 			children = (
 				706CB78C1E64739A00FEF88A /* DomainObjects */,
+				70ECFC1B1E76DCC1003B43CA /* API */,
+				70ECFC1C1E76DCD3003B43CA /* Tracking */,
 				F37E830C1E5698FC0072B3D8 /* AppDelegate.swift */,
 				F37E83151E5698FC0072B3D8 /* RootViewController.swift */,
-				F37E830B1E5698FC0072B3D8 /* APIParameters.swift */,
-				F37E83171E5698FC0072B3D8 /* SuggestionLoader.swift */,
 				F34F0AD31E5E70E600F94020 /* CollectionViewModel.swift */,
 				F37E83181E5698FC0072B3D8 /* TableViewCell.swift */,
 				F34F0AD11E5E697A00F94020 /* CollectionViewCell.swift */,
-				F3BEDDA51E5FC9A200741195 /* Reachability.swift */,
-				F3F700301E5E5EC500B1C2D4 /* Dictionary+URLEncode.swift */,
 				F37E832A1E577F9B0072B3D8 /* Main.storyboard */,
 				F37E83271E577F960072B3D8 /* LaunchScreen.storyboard */,
 				F37E830D1E5698FC0072B3D8 /* Assets.xcassets */,
@@ -109,6 +111,26 @@
 			children = (
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		70ECFC1B1E76DCC1003B43CA /* API */ = {
+			isa = PBXGroup;
+			children = (
+				F37E830B1E5698FC0072B3D8 /* APIParameters.swift */,
+				F37E83171E5698FC0072B3D8 /* SuggestionLoader.swift */,
+				F3BEDDA51E5FC9A200741195 /* Reachability.swift */,
+				F3F700301E5E5EC500B1C2D4 /* Dictionary+URLEncode.swift */,
+			);
+			name = API;
+			sourceTree = "<group>";
+		};
+		70ECFC1C1E76DCD3003B43CA /* Tracking */ = {
+			isa = PBXGroup;
+			children = (
+				70ECFC171E76BCD4003B43CA /* CardImpressionInfo.swift */,
+				70ECFC191E76C292003B43CA /* CardImpressionsTracker.swift */,
+			);
+			name = Tracking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,8 +213,10 @@
 				F34F0AD21E5E697A00F94020 /* CollectionViewCell.swift in Sources */,
 				F37E83201E5698FC0072B3D8 /* RootViewController.swift in Sources */,
 				F34F0AD41E5E70E600F94020 /* CollectionViewModel.swift in Sources */,
+				70ECFC181E76BCD4003B43CA /* CardImpressionInfo.swift in Sources */,
 				F37E83211E5698FC0072B3D8 /* SuggestionData.swift in Sources */,
 				F37E83221E5698FC0072B3D8 /* SuggestionLoader.swift in Sources */,
+				70ECFC1A1E76C292003B43CA /* CardImpressionsTracker.swift in Sources */,
 				F3BEDDA61E5FC9A200741195 /* Reachability.swift in Sources */,
 				F37E83231E5698FC0072B3D8 /* TableViewCell.swift in Sources */,
 				F37E83191E5698FC0072B3D8 /* APIParameters.swift in Sources */,
